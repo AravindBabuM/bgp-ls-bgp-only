@@ -9,8 +9,8 @@ number:
 date:
 consensus: true
 v: 3
-area: Routing
-workgroup: Inter-Domain Routing
+area: "Routing"
+workgroup: "Inter-Domain Routing"
 keyword:
  - BGP
  - Segment Routing

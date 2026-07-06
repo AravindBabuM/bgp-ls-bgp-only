@@ -1,8 +1,4 @@
 ---
-###
-# Internet-Draft Markdown (kramdown-rfc)
-# https://github.com/cabo/kramdown-rfc
-###
 title: "BGP Link-State Extensions for BGP-only Networks"
 abbrev: "BGP LS for BGP-only Fabric"
 category: std
@@ -28,7 +24,7 @@ author:
     country: India
     email: ketant.ietf@gmail.com
  -
-    fullname: Aravind Babu MahendraBabu
+    fullname: AravindBabu MahendraBabu
     role: editor
     organization: Cisco Systems
     country: India

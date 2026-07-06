@@ -147,14 +147,14 @@ directly connected nodes in the fabric. While a data-center design
 use for computation may also apply to other networks with BGP-only
 fabric or to BGP-only portions of a larger network topology.
 
-BGP hop-by-hop routing can be setup using EBGP single-hop sessions
+BGP hop-by-hop routing can be set up using EBGP single-hop sessions
 over individual links between directly connected routers using their
 link addresses for peering as described in {{RFC7938}}. In such a
 design, the neighbors' link addresses may be provisioned for peering and
 the EBGP session operating directly over the link performs the
 monitoring of the neighbor on that link. A variation of this design
-would be that the EBGP session is setup between directly connected
-routers using their loopback sessions. The mechanisms for discovery of
+would be that the EBGP session is set up between directly connected
+routers using their loopback IP addresses. The mechanisms for discovery of
 the neighbor's link addresses and their monitoring on a per link basis
 are outside the scope of this document.
 
@@ -175,10 +175,10 @@ deployment scenario. Every BGP router in the network is enabled for
 BGP-LS and forms BGP-LS sessions with one or more centralized BGP-LS
 speakers over which it sends its local topology information.
 
-Each BGP router MAY also receive the topology information from all
+Each BGP router may also receive the topology information from all
 other BGP routers via these centralized BGP-LS speakers. This way, any
-BGP router (as also the centralized BGP-LS speakers) MAY obtain
-aggregated Link-State information for the entire BGP network. An
+BGP router (as also the centralized BGP-LS speakers) may obtain
+aggregated Link-State information for the BGP network. An
 external component (e.g. a controller) can obtain this information from
 the centralized BGP-LS speakers or directly by doing BGP-LS peering to
 the BGP routers. An internal software component on any of the BGP
@@ -217,7 +217,7 @@ topology information from its local BGP process.
 The peering model described above relies on the base BGP IPv4 or
 IPv6 routing underlay (e.g. as described in {{RFC7938}}) or any other
 mechanism for reachability for the BGP-LS session establishment with the
-centralized BGP speakers. A variation of this model would be to setup
+centralized BGP speakers. A variation of this model would be to set up
 reachability to the centralized BGP speakers (or controller) over the
 out of band management network and for each BGP router in the fabric to
 use this management network for the BGP-LS session establishment with
@@ -285,26 +285,22 @@ Local Node Descriptors:
 - BGP Router-ID (TLV 516), which contains the BGP Identifier of the
   originating BGP router.
 
-The BGP-LS Attribute associated with the Node NLRI MAY include the
-following TLVs that are defined in respective documents to signal the
-router properties and capabilities ({{NODE-PROCEDURES}} defines the
-procedures for their advertisements):
+The BGP-LS Attribute associated with the Node NLRI SHOULD include the
+Node Name TLV and MAY include the TE Router-ID TLVs (to indicate a
+unique reachable IP address for that node) to signal the router
+properties ({{NODE-PROCEDURES}} defines the procedures for their
+advertisements):
 
 | TLV Code Point | Description | Reference Document |
 |:-:|:--|:--|
-| 266 | Node MSD | {{RFC8814}} |
 | 1026 | Node Name | {{RFC9552}} |
 | 1028 | IPv4 TE Router-ID | {{RFC9552}} |
 | 1029 | IPv6 TE Router-ID | {{RFC9552}} |
-| 1032 | S-BFD Discriminators | {{RFC9247}} |
-| 1034 | SR Capabilities | {{RFC9085}} |
-| 1035 | SR Algorithm | {{RFC9085}} |
-| 1036 | SR Local Block | {{RFC9085}} |
-| 1038 | SRv6 Capabilities | {{RFC9514}} |
 {: #NODE-ATTR title="Node Attribute TLVs"}
 
-The above list of TLVs is not exhaustive but indicative as of the
-time of writing of this document.
+The above list of TLVs is not exhaustive and other BGP-LS TLVs
+related to the advertisement of the node properties MAY be included
+depending on the desired use case.
 
 ## Link Advertisements {#LINK}
 
@@ -354,8 +350,8 @@ Link Descriptors:
   Identifier when the value is unknown.
 
 In addition, the following Link Descriptors TLVs SHOULD appear in
-the Link NLRI as Link Descriptors based on the address family used for
-setting up the BGP Peering or the addresses configured on the links:
+the Link NLRI as Link Descriptors based on the address family used when
+setting up the BGP Peering using the addresses configured on the links:
 
 - IPv4 Interface Address (TLV 259) contains the address of the local
   interface through which the BGP session is established using IPv4
@@ -373,30 +369,19 @@ setting up the BGP Peering or the addresses configured on the links:
   peer interface used by the BGP session establishment using IPv6
   address.
 
-The BGP-LS Attribute associated with the Link NLRI MAY include the
-following TLVs that are defined in respective documents to signal the
-router's local links' properties and capabilities ({{LINK-PROCEDURES}}
-defines the procedures for their advertisements):
+The BGP-LS Attribute associated with the Link NLRI SHOULD include the
+Link Name and Maximum Link Bandwidth TLVs to signal the link properties
+({{LINK-PROCEDURES}} defines the procedures for their advertisements):
 
 | TLV Code Point | Description | Reference Document |
 |:-:|:--|:--|
-| 267 | Link MSD | {{RFC8814}} |
-| 1088 | Administrative group (color) | {{RFC9552}} |
 | 1089 | Maximum link bandwidth | {{RFC9552}} |
-| 1092 | TE Default Metric | {{RFC9552}} |
-| 1096 | SRLG | {{RFC9552}} |
 | 1098 | Link Name | {{RFC9552}} |
-| 1106 | SRv6 End.X SID | {{RFC9514}} |
-| 1114 | Unidirectional link delay | {{RFC8571}} |
-| 1115 | Min/Max Unidirectional link delay | {{RFC8571}} |
-| 1116 | Unidirectional delay variation | {{RFC8571}} |
-| 1117 | Unidirectional link loss | {{RFC8571}} |
-| 1172 | L2 Bundle Member | {{RFC9085}} |
-| 1173 | Extended Administrative group (color) | {{RFC9104}} |
 {: #LINK-ATTR title="Link Attribute TLVs"}
 
-The above list of TLVs is not exhaustive but indicative as of the
-time of writing of this document.
+The above list of TLVs is not exhaustive and other BGP-LS TLVs
+related to the advertisement of the link properties MAY be included
+depending on desired use case.
 
 ## Prefix Advertisements {#PREFIX}
 
@@ -458,78 +443,42 @@ Route Type:
 | Value | Type | Description |
 |:-:|:--|:--|
 | 1 | Local | Local interface prefix e.g. Loopback |
-| 2 | Attached | Directly attached node's prefix e.g host |
+| 2 | Attached | Directly attached node's prefix e.g. host |
 | 3 | External BGP | Prefix learnt via EBGP |
 | 4 | Internal BGP | Prefix learnt via IBGP |
 | 5 | Redistributed | Prefix redistributed into BGP |
 {: #BGPRTTYPES title="BGP Route Types"}
 
-The BGP-LS Attribute associated with the Prefix NLRI MAY include the
-following TLVs that are defined in respective documents to signal the
-router's own prefix properties and capabilities ({{PREFIX-PROCEDURES}}
-defines the procedures for their advertisements):
+The BGP-LS Attribute associated with the Prefix NLRI SHOULD include the
+Prefix Metric TLV to signal the prefix properties and capabilities
+({{PREFIX-PROCEDURES}} defines the procedures for their advertisements):
 
 | TLV Code Point | Description | Reference Document |
 |:-:|:--|:--|
 | 1155 | Prefix Metric | {{RFC9552}} |
-| 1158 | Prefix SID | {{RFC9085}} |
-| 1162 | SRv6 Locator | {{RFC9514}} |
-| 1170 | Prefix Attributes Flags | {{RFC9085}} |
-| 1171 | Source Router Identifier | {{RFC9085}} |
 {: #PREFIX-ATTR title="Prefix Attribute TLVs"}
 
-The above list of TLVs is not exhaustive but indicative as of the
-time of writing of this document.
+The above list of TLVs is not exhaustive and other BGP-LS TLVs
+related to the advertisement of the prefix properties MAY be included
+depending on desired use case.
 
-## SR Policy Advertisements {#SRPOL}
+## SR Policy and SRv6 SID Advertisements {#SRPOL}
 
-{{RFC9857}} defines SR Policy Candidate Path NLRI Type with its Headend
-Node and SR Policy Candidate Path Descriptor TLVs as follows:
+In deployments where Segment Routing (SR) {{RFC8402}} is deployed in
+the BGP network and the use case requires information about SR Policies
+{{RFC9256}} or SRv6 SIDs instantiated on the routers, the BGP-LS
+extensions as follows MAY also be advertised:
 
-~~~
-  0                   1                   2                   3
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
- +-+-+-+-+-+-+-+-+
- |  Protocol-ID  |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |                        Identifier                             |
- |                        (64 bits)                              |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- //                Headend (Node Descriptors)                   //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- //       SR Policy Candidate Path Descriptors (variable)       //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-~~~
+{{RFC9514}} defines the BGP-LS NLRI that can be used to advertise
+Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
+instantiated on a BGP Router. The Local Node Descriptors TLVs are the
+same as specified in {{NODE}} and the rest of the procedures are the
+same as specified in {{RFC9514}}.
 
-The Headend Node Descriptors TLVs are the same as specified in
-{{NODE}}. The semantics for the SR Policy Candidate Path Descriptor TLVs
-and the TLVs associated with the BGP-LS Attribute are used as specified
-in {{RFC9857}}.
-
-## SRv6 SID Advertisements {#SRV6}
-
-{{RFC9514}} defines SRv6 NLRI Type and its Local Node and SRv6 SID
-Descriptor TLVs as follows:
-
-~~~
-  0                   1                   2                   3
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
- +-+-+-+-+-+-+-+-+
- |  Protocol-ID  |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |                        Identifier                             |
- |                        (8 octets)                             |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |               Local Node Descriptors (variable)              //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |               SRv6 SID Descriptors (variable)                //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-~~~
-
-The Local Node Descriptors TLVs are the same as specified in
-{{NODE}}. The semantics for the SRv6 SID Descriptor TLVs and the TLVs
-associated with the BGP-LS Attribute are used as specified in
-{{RFC9514}}.
+{{RFC9857}} defines the BGP-LS NLRIs that can be used to advertise
+information about SR Policies instantiated on a BGP Router headend. The
+Headend Node Descriptors TLVs are the same as specified in {{NODE}} and
+the rest of the procedures are the same as specified in {{RFC9857}}.
 
 
 # Procedures {#PROCEDURES}
@@ -763,12 +712,7 @@ this capability for BGP-only networks allows existing controllers and
 applications to consume the information with some incremental BGP
 protocol awareness.
 
-## Traffic Engineering Use Cases in BGP-only Networks {#USE-CASE-TE}
-
-The complete topology visibility provided by BGP-LS enables the
-following traffic engineering use cases in BGP-only networks.
-
-### SR-TE in BGP Networks {#BGP-SRTE}
+## SR-TE in BGP Networks {#BGP-SRTE}
 
 The SR-TE use-case for BGP builds on top of functionality specified
 in {{RFC8669}} and also described in {{RFC8670}}. The BGP SR Prefix SID
@@ -853,106 +797,112 @@ use-cases.
 The actual SR-TE path computation and algorithms are outside the
 scope of this document.
 
-### IP Fast Reroute in BGP-only Networks {#BGP-IPFRR}
+## IP Fast Reroute in BGP-only Networks {#BGP-IPFRR}
 
 IP Fast Reroute (IPFRR) {{RFC5714}} is widely deployed in IP networks
-to provide protection against failures by pre-computing and invoking
-locally determined repair paths. Traditional IPFRR deployments rely on a
-link-state IGP to supply the complete topology database from which
-repair paths are computed. BGP-only networks lack an equivalent to the
-IGP Link-State Database (LSDB): as a path-vector protocol, BGP
-advertises reachability without topology details, and BGP best-path
-selection has no inherent mechanism to compute repair paths from a
-network graph. Additionally, BGP policies applied at intermediate nodes
-may alter forwarding decisions and MUST be accounted for during IPFRR
-computation to ensure that computed repair paths are viable and
-loop-free.
+to provide protection against failures through the pre-computation and
+local invocation of repair paths. Traditional IPFRR deployments rely
+upon a link-state IGP to supply the complete topology database from
+which repair paths are computed. BGP-only networks lack an equivalent
+to the IGP Link-State Database (LSDB). As a path-vector protocol, BGP
+advertises reachability without conveying topology detail, and BGP
+best-path selection provides no inherent mechanism for the computation
+of repair paths from a network graph. Furthermore, BGP policies applied
+at intermediate nodes can alter forwarding decisions. Such policies MUST
+be accounted for during IPFRR computation in order to ensure that
+computed repair paths are viable and loop-free.
 
-The BGP-LS topology collection specified in this document resolves the
-fundamental limitation by providing complete topology visibility in
-BGP-only networks. With this topology information, IPFRR computations
-using the same LFA and TI-LFA techniques applied in link-state IGP
-deployments can be performed. This capability has been demonstrated in
-open-source implementations such as FRRouting.
-{{I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network}} defines the problem
-statement and solution framework for IPFRR in BGP-only networks using
-BGP-LS as the topology source.
+The BGP-LS topology collection specified in this document addresses this
+limitation by providing complete topology visibility within BGP-only
+networks. Given this topology information, IPFRR computations employing
+the same Loop-Free Alternate (LFA) and Topology-Independent LFA (TI-LFA)
+techniques used in link-state IGP deployments can be performed. The
+problem statement and solution framework for IPFRR in BGP-only networks
+using BGP-LS as the topology source are defined in
+{{I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network}}.
 
 The solution introduces an IPFRR Agent, an independent computation
-entity that may be co-located on the router, deployed on an external
+entity that MAY be co-located on the router, deployed on an external
 server, or integrated into a controller. The IPFRR Agent operates
-through the following workflow:
+according to the following workflow:
 
-1. Topology collection: all BGP routers report their local topology
+1. Topology collection: Each BGP router reports its local topology
    via BGP-LS to one or more centralized BGP-LS speakers.
 
-2. Topology consolidation: the centralized BGP-LS speaker aggregates
-   the received NLRIs to build a complete network topology database.
+2. Topology consolidation: The centralized BGP-LS speaker aggregates
+   the received NLRIs to construct a complete network topology database.
 
-3. Topology retrieval: the IPFRR Agent retrieves and continuously
-   updates its topology database from the centralized BGP-LS speaker.
+3. Topology retrieval: The IPFRR Agent retrieves, and continuously
+   updates, its topology database from the centralized BGP-LS speaker.
 
-4. IPFRR computation: the IPFRR Agent computes LFA and TI-LFA repair
+4. IPFRR computation: The IPFRR Agent computes LFA and TI-LFA repair
    paths for each registered BGP router using the full topology
-   database, accounting for BGP policies that affect forwarding along
-   the repair path.
+   database. The computation MUST account for BGP policies that affect
+   forwarding along the repair path.
 
-5. Programming: the IPFRR Agent installs the computed repair paths on
+5. Programming: The IPFRR Agent installs the computed repair paths on
    the corresponding BGP routers via standard southbound APIs such as
    NETCONF, RESTCONF, or gRPC.
 
-### Efficient Remote Protection in AI/ML Fabrics {#BGP-ERP}
+## Efficient Remote Protection in AI/ML Fabrics {#BGP-ERP}
 
-AI and Machine Learning data center fabrics commonly employ BGP-only
-multi-tier Clos topologies where training workloads are highly
-synchronized, bandwidth-saturating, and extremely sensitive to packet
-loss. These characteristics drive a convergence time requirement of
-sub-100 microseconds, which traditional CPU-based fast reroute
-mechanisms cannot satisfy. {{I-D.clad-rtgwg-ipfrr-aiml}} describes these
-requirements and their implications for IP Fast Reroute in AI/ML
-fabrics. The complete topology visibility provided by BGP-LS as
-specified in this document is a prerequisite for computing LFA, TI-LFA,
-and remote protection backup paths at any node in such a BGP-only
-fabric.
+AI and Machine Learning (AI/ML) data center fabrics commonly employ
+BGP-only multi-tier Clos topologies in which training workloads are
+highly synchronized, bandwidth-saturating, and extremely sensitive to
+packet loss. These characteristics impose a convergence time requirement
+on the order of sub-100 microseconds, which traditional CPU-based fast
+reroute mechanisms cannot satisfy. These requirements, and their
+implications for IP Fast Reroute in AI/ML fabrics, are described in
+{{I-D.clad-rtgwg-ipfrr-aiml}}. The complete topology visibility
+provided by BGP-LS, as specified in this document, is a prerequisite
+for the computation of LFA, TI-LFA, and remote protection backup paths
+at any node within such a BGP-only fabric.
 
 ECMP-based protection, while the primary resiliency mechanism in Clos
-fabrics, is fundamentally limited to the upward direction of the path,
-the portion where multiple equal-cost paths exist through different
-spine switches. Once traffic reaches the highest-tier switch and turns
-downward toward the destination leaf, only a single downward path
-exists. A failure on this downward segment cannot be protected locally
-by ECMP at the spine, nor by the directly adjacent node whose only
-downward path has failed.
+fabrics, is fundamentally limited to the upward direction of the path --
+that is, the portion in which multiple equal-cost paths exist through
+different spine switches. Once traffic reaches the highest-tier switch
+and turns downward toward the destination leaf, only a single downward
+path exists. A failure on this downward segment cannot be protected
+locally by ECMP at the spine, nor by the directly adjacent node whose
+sole downward path has failed.
 
-TI-LFA {{RFC9855}} provides 100% protection coverage using Segment
-Routing-encoded repair paths, but when the nearest loop-free alternate
-lies upstream of the Point of Local Repair (PLR) on the primary path,
-TI-LFA steers traffic back through those upstream nodes. In AI fabrics
-with bursty, bandwidth-saturating training traffic, this hairpin
-consumes additional bandwidth on already-loaded uplinks and increases
-latency, potentially disrupting the tight synchronization required by
-distributed training algorithms.
+TI-LFA {{RFC9855}} provides full (100%) protection coverage using
+Segment Routing-encoded repair paths. However, when the nearest
+loop-free alternate lies upstream of the Point of Local Repair (PLR) on
+the primary path, TI-LFA steers traffic back through those upstream
+nodes. In AI fabrics carrying bursty, bandwidth-saturating training
+traffic, this hairpin consumes additional bandwidth on already-loaded
+uplinks and increases latency, potentially disrupting the tight
+synchronization required by distributed training algorithms.
 
 Efficient Remote Protection (ERP)
 {{I-D.clad-rtgwg-efficient-remote-protection}} addresses this limitation
 by activating a pre-computed, hairpin-free backup path at a Point of
-Remote Repair (PRR) that is upstream of the PLR on the primary path. The
-PRR pre-installs its backup path as a primary/backup FIB entry encoded
-as a Segment Routing segment list that steers traffic directly to a node
-in the Q-Space of the destination, bypassing the failed resource without
-creating a hairpin. The ERP backup is activated when the PRR receives a
-network notification from the PLR; this notification is processed
-entirely in the forwarding plane without CPU involvement, targeting
-activation within the propagation delay plus 100 microseconds.
+Remote Repair (PRR) located upstream of the PLR on the primary path. The
+PRR SHALL pre-install its backup path as a primary/backup FIB entry,
+encoded as a Segment Routing segment list that steers traffic directly
+to a node within the Q-Space of the destination, thereby bypassing the
+failed resource without creating a hairpin. The ERP backup is activated
+when the PRR receives a network notification from the PLR. This
+notification is processed entirely within the forwarding plane, without
+CPU involvement, with the objective of achieving activation within the
+propagation delay plus 100 microseconds.
 
-ERP applies to both complete link or node failures, where all traffic
-is immediately rerouted to the backup path, and to performance
-degradations such as partial bundle member failures or congestion, where
-the PRR load-balances traffic between the primary and backup paths
-proportionally to the severity indicated in the notification. The Node
-and Link NLRIs collected via BGP-LS, including TE metrics, SRLG, delay
-measurements, and adjacency SIDs, provide the complete topology input
-required to compute ERP backup paths at any node in the BGP-only fabric.
+ERP applies to both of the following failure classes:
+
+- Complete link or node failures, for which all affected traffic is
+  immediately rerouted onto the backup path; and
+
+- Performance degradations -- for example, partial bundle member
+  failures or congestion -- for which the PRR load-balances traffic
+  between the primary and backup paths in proportion to the severity
+  indicated in the notification.
+
+The Node and Link NLRIs collected via BGP-LS -- including TE metrics,
+Shared Risk Link Groups (SRLGs), delay measurements, and Adjacency
+SIDs -- provide the complete topology input required to compute ERP
+backup paths at any node within the BGP-only fabric.
 
 
 # IANA Considerations {#IANA}

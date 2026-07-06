@@ -1,13 +1,9 @@
 ---
-###
-# Internet-Draft Markdown (kramdown-rfc)
-# https://github.com/cabo/kramdown-rfc
-###
 title: "BGP Link-State Extensions for BGP-only Networks"
 abbrev: "BGP LS for BGP-only Fabric"
 category: std
 
-docname: draft-ietf-idr-bgp-ls-bgp-only-fabric-05
+docname: draft-ietf-idr-bgp-ls-bgp-only-fabric-latest-latest
 submissiontype: IETF
 number:
 date:

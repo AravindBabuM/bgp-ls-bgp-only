@@ -3,7 +3,7 @@
 
 
 Inter-Domain Routing                                       K. Talaulikar
-Internet-Draft                                   A. B. MahendraBabu, Ed.
+Internet-Draft                                      A. MahendraBabu, Ed.
 Intended status: Standards Track                             C. Filsfils
 Expires: 7 January 2027                                         K. Swamy
                                                            Cisco Systems
@@ -1161,7 +1161,7 @@ Authors' Addresses
    Email: ketant.ietf@gmail.com
 
 
-   Aravind Babu MahendraBabu (editor)
+   AravindBabu MahendraBabu (editor)
    Cisco Systems
    India
    Email: aramahen@cisco.com

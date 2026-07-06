@@ -7,7 +7,7 @@ title: "BGP Link-State Extensions for BGP-only Networks"
 abbrev: "BGP LS for BGP-only Fabric"
 category: std
 
-docname: draft-ietf-idr-bgp-ls-bgp-only-fabric-latest
+docname: draft-ietf-idr-bgp-ls-bgp-only-fabric-06
 submissiontype: IETF
 number:
 date:

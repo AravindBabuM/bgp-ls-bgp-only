@@ -591,9 +591,8 @@ document does not describe the exhaustive list.
 
 This section describes the key use cases for the BGP topology
 information collected as specified in this document: topology visibility
-for network monitoring, Segment Routing Traffic Engineering (SR-TE),
-IP Fast Reroute (IPFRR), and Efficient Remote Protection (ERP) in
-BGP-only networks.
+for network monitoring, IP Fast Reroute (IPFRR) and protection, and
+Segment Routing Traffic Engineering (SR-TE) in BGP-only networks.
 
 ## Topology View for Monitoring {#TOPO-VIEW}
 
@@ -607,6 +606,34 @@ network topology related information for most IGP networks and extending
 this capability for BGP-only networks allows existing controllers and
 applications to consume the information with some incremental BGP
 protocol awareness.
+
+## IP Fast Reroute and Protection in BGP-only Networks {#BGP-IPFRR}
+
+AI and Machine Learning (AI/ML) data center fabrics commonly employ
+BGP-only multi-tier Clos topologies in which training workloads are
+highly synchronized, bandwidth-saturating, and extremely sensitive to
+packet loss. These characteristics impose stringent convergence time
+requirements. The requirements and their implications for IP Fast
+Reroute (IPFRR) in such fabrics are described in
+{{I-D.clad-rtgwg-ipfrr-aiml}}.
+
+Traditional IPFRR {{RFC5714}} deployments rely upon a link-state IGP to
+supply the complete topology database from which repair paths are
+computed. BGP-only networks lack an equivalent topology database. The
+BGP-LS topology collection specified in this document addresses this
+limitation by providing complete topology visibility, enabling IPFRR
+computations using LFA and TI-LFA techniques. The problem statement and
+solution framework for IPFRR in BGP-only networks using BGP-LS as the
+topology source are defined in
+{{I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network}}.
+
+For scenarios where ECMP and TI-LFA protection are insufficient --
+particularly on downward paths in Clos topologies where hairpin reroutes
+would consume bandwidth on already-loaded uplinks -- Efficient Remote
+Protection (ERP) {{I-D.clad-rtgwg-efficient-remote-protection}} provides
+a pre-computed, hairpin-free backup path mechanism. The Node and Link
+NLRIs collected via BGP-LS provide the topology input required to
+compute such protection paths at any node within the BGP-only fabric.
 
 ## SR-TE in BGP Networks {#BGP-SRTE}
 
@@ -632,34 +659,6 @@ node in the BGP fabric for use by its local SR-TE process.
 
 The actual SR-TE path computation and algorithms are outside the
 scope of this document.
-
-## IP Fast Reroute and Protection in BGP-only Networks {#BGP-IPFRR}
-
-AI and Machine Learning (AI/ML) data center fabrics commonly employ
-BGP-only multi-tier Clos topologies in which training workloads are
-highly synchronized, bandwidth-saturating, and extremely sensitive to
-packet loss. These characteristics impose convergence time requirements
-on the order of sub-100 microseconds. The requirements and their
-implications for IP Fast Reroute (IPFRR) in such fabrics are described
-in {{I-D.clad-rtgwg-ipfrr-aiml}}.
-
-Traditional IPFRR {{RFC5714}} deployments rely upon a link-state IGP to
-supply the complete topology database from which repair paths are
-computed. BGP-only networks lack an equivalent topology database. The
-BGP-LS topology collection specified in this document addresses this
-limitation by providing complete topology visibility, enabling IPFRR
-computations using LFA and TI-LFA techniques. The problem statement and
-solution framework for IPFRR in BGP-only networks using BGP-LS as the
-topology source are defined in
-{{I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network}}.
-
-For scenarios where ECMP and TI-LFA protection are insufficient --
-particularly on downward paths in Clos topologies where hairpin reroutes
-would consume bandwidth on already-loaded uplinks -- Efficient Remote
-Protection (ERP) {{I-D.clad-rtgwg-efficient-remote-protection}} provides
-a pre-computed, hairpin-free backup path mechanism. The Node and Link
-NLRIs collected via BGP-LS provide the topology input required to
-compute such protection paths at any node within the BGP-only fabric.
 
 
 # IANA Considerations {#IANA}

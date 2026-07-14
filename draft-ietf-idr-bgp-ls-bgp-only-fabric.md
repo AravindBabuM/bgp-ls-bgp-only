@@ -456,7 +456,7 @@ depending on the desired use case.
 In deployments where Segment Routing (SR) {{RFC8402}} is deployed in
 the BGP network and the use case requires information about SR Policies
 {{RFC9256}} or SRv6 SIDs instantiated on the routers, the following
-BGP-LS extensions MAY also be advertised. 
+BGP-LS extensions MAY also be advertised.
 
 {{RFC9514}} defines the BGP-LS NLRI that can be used to advertise
 Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information

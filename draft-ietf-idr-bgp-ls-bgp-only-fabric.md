@@ -456,9 +456,7 @@ depending on the desired use case.
 In deployments where Segment Routing (SR) {{RFC8402}} is deployed in
 the BGP network and the use case requires information about SR Policies
 {{RFC9256}} or SRv6 SIDs instantiated on the routers, the following
-BGP-LS extensions MAY also be advertised. SRv6 deployments in data center
-networks are described in {{I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan}}
-and {{I-D.filsfils-srv6ops-srv6-ai-backend}}.
+BGP-LS extensions MAY also be advertised. 
 
 {{RFC9514}} defines the BGP-LS NLRI that can be used to advertise
 Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
@@ -477,7 +475,7 @@ the rest of the procedures are the same as specified in {{RFC9857}}.
 In a network where BGP is the only routing protocol, the BGP-LS
 session is used to advertise the necessary information about the local
 node properties, its local links' properties and where necessary the
-prefixes owned by the node. TE Policies, that are instantiated on the
+prefixes owned by the node. SR Policies, that are instantiated on the
 local node (i.e. when it is the head-end for the policy), along with
 their properties may also be advertised via the BGP-LS session. This
 information, once collected across all BGP routers in the network,
@@ -505,12 +503,11 @@ with it.
 
 The Node Name Attribute SHOULD be advertised when available.
 
-This document introduces some of the TE concepts into BGP-only
-networks. Provisioning of a TE Router-ID with a unique address normally
-associated with a loopback interface on the router SHOULD be supported
-to enable TE use-cases for both IPv4 and IPv6. The BGP Router-ID along
-with the ASN also provides the capability for uniquely identifying a BGP
-router in the network.
+The TE Router-ID, normally provisioned with a unique address
+associated with a loopback interface on the router, SHOULD be
+advertised to enable TE use-cases for both IPv4 and IPv6. The BGP Router-ID
+along with the ASN also provides the capability for uniquely identifying a
+BGP router in the network.
 
 Other Node Attributes applicable to a BGP Router may also be included
 and this document does not describe the exhaustive list.
@@ -555,9 +552,10 @@ topology.
 TE attributes for links have been traditionally associated with Link
 State Routing protocols. However, with the ability to discover the link
 topology via BGP-LS as specified in this document, the TE attributes and
-their principles can also be applied to a network running BGP alone. The
-TE attributes for a link have been described in {{LINK-ATTR}} and MAY be
-advertised when TE use-cases are enabled.
+their principles can also be applied to a network running BGP alone.
+Additional link attribute TLVs related to TE (e.g., TE Default Metric,
+Administrative Group, SRLG) as defined in {{RFC9552}} MAY be included
+in the Link NLRI when TE use-cases are enabled.
 
 Layer 3 bundle links comprising multiple Layer 2 member links are often
 used in BGP networks. When BGP session is configured over such a layer 3
@@ -706,13 +704,6 @@ require configuration; thus, it is the responsibility of the network
 operator to ensure that only trusted nodes (that include both routers
 and controller applications) within the trusted domain are configured to
 receive such information.
-
-Operators SHOULD deploy route policy mechanisms (e.g., BGP communities,
-prefix filters, or outbound route policies) on BGP-LS sessions to
-prevent inadvertent leaking of topology information outside the trusted
-domain. Such filtering is particularly important at domain boundaries
-where BGP-LS routes might otherwise propagate to untrusted peers.
-
 
 --- back
 

@@ -338,8 +338,8 @@ Link Descriptors:
   Identifier. The value 0 MUST be used for the Link Remote
   Identifier when the value is unknown.
 
-In addition, the following Link Descriptors TLVs SHOULD appear in 
-the Link NLRI as Link Descriptors based on the address family of the 
+In addition, the following Link Descriptors TLVs SHOULD appear in
+the Link NLRI as Link Descriptors based on the address family of the
 addresses configured on the links for BGP peering:
 
 - IPv4 Interface Address (TLV 259) contains the address of the local
@@ -455,9 +455,9 @@ depending on the desired use case.
 
 In deployments where Segment Routing (SR) {{RFC8402}} is deployed in
 the BGP network and the use case requires information about SR Policies
-{{RFC9256}} or SRv6 SIDs instantiated on the routers, the following 
-BGP-LS extensions MAY also be advertised. SRv6 deployments in data center 
-networks are described in {{I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan}} 
+{{RFC9256}} or SRv6 SIDs instantiated on the routers, the following
+BGP-LS extensions MAY also be advertised. SRv6 deployments in data center
+networks are described in {{I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan}}
 and {{I-D.filsfils-srv6ops-srv6-ai-backend}}.
 
 {{RFC9514}} defines the BGP-LS NLRI that can be used to advertise
@@ -506,8 +506,8 @@ with it.
 The Node Name Attribute SHOULD be advertised when available.
 
 This document introduces some of the TE concepts into BGP-only
-networks. Provisioning of a TE Router-ID with a unique address normally 
-associated with a loopback interface on the router SHOULD be supported 
+networks. Provisioning of a TE Router-ID with a unique address normally
+associated with a loopback interface on the router SHOULD be supported
 to enable TE use-cases for both IPv4 and IPv6. The BGP Router-ID along
 with the ASN also provides the capability for uniquely identifying a BGP
 router in the network.
@@ -559,10 +559,10 @@ their principles can also be applied to a network running BGP alone. The
 TE attributes for a link have been described in {{LINK-ATTR}} and MAY be
 advertised when TE use-cases are enabled.
 
-Layer 3 bundle links comprising multiple Layer 2 member links are often 
-used in BGP networks. When BGP session is configured over such a layer 3 
-link, the link attributes of the underlying layer 2 links MAY be 
-advertised individually using the L2 Bundle Member TLV. The applicable 
+Layer 3 bundle links comprising multiple Layer 2 member links are often
+used in BGP networks. When BGP session is configured over such a layer 3
+link, the link attributes of the underlying layer 2 links MAY be
+advertised individually using the L2 Bundle Member TLV. The applicable
 attributes for the L2 links are described in {{RFC9085}}.
 
 The Link Name Attribute MAY be advertised when available.

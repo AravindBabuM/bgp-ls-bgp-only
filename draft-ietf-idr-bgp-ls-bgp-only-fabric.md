@@ -656,6 +656,35 @@ objectives. The topology may be advertised to a centralized controller
 for use-cases requiring centralized computation, or distributed to any
 node in the BGP fabric for use by its local SR-TE process.
 
+Two deployment scenarios that leverage SRv6 SR-TE in BGP-only data
+center fabrics are described below.
+
+### End-to-End SRv6 across DC Frontend and WAN
+
+{{I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan}} describes an SRv6
+end-to-end architecture that unifies the data center frontend and WAN
+under a single SRv6 domain, eliminating the need for protocol
+translation at DCI gateways. In this deployment, SR Policies are used to
+steer traffic end-to-end across the DC and WAN and to enable stateless
+service insertion (e.g., directing traffic through firewall services via
+SRv6 SIDs). The BGP-LS topology collection specified in this document
+provides the node and link information within the BGP-only DC fabric
+that is required by a controller or local SR-TE process to compute such
+SR Policies.
+
+### Deterministic Path Placement in AI Backends
+
+{{I-D.filsfils-srv6ops-srv6-ai-backend}} describes the use of SRv6 to
+enable deterministic path placement for GPU-to-GPU traffic in AI/ML
+backend fabrics. In this deployment, an AI scheduler computes optimal
+paths through the Clos fabric to achieve homogeneous link utilization
+and avoid congestion for large, predictable training flows. The paths
+are encoded as SRv6 network programs at the source NIC without requiring
+per-flow state on intermediate fabric nodes. The BGP-LS topology
+collection specified in this document provides the fabric-wide node and
+link information that is required by the AI scheduler or controller to
+compute these deterministic paths.
+
 The actual SR-TE path computation and algorithms are outside the
 scope of this document.
 

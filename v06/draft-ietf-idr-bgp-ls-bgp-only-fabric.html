@@ -1279,7 +1279,7 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Network operators are going for a BGP-only routing protocol for
+<p id="section-1-1">Network operators are adopting BGP as the sole routing protocol for
 certain networks like Massively Scaled Data Centers (MSDCs). <span>[<a href="#RFC7938" class="cite xref">RFC7938</a>]</span>
 describes the requirement, design and operational aspects for use of BGP
 as the only routing protocol in MSDCs. The underlying link and topology
@@ -1425,9 +1425,12 @@ possible and they are not precluded by this document.<a href="#section-3.1-2" cl
 NLRI and Prefix NLRI) along with their corresponding BGP-LS Attribute
 (i.e. Node Attribute, Link Attribute or Prefix Attribute) and the TLVs
 that map to the respective NLRI and Attribute for each type.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2"><span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span> specifies the BGP Protocol ID to be used for signaling BGP
-EPE information and the same is used for advertising of topology
-information in a BGP-only network.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-2"><span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span> specifies the BGP Protocol-ID value 7 to be used for
+signaling BGP EPE information. The same Protocol-ID value (7) is used
+for advertising topology information in a BGP-only network as specified
+in this document. The 64-bit Identifier field in the BGP-LS NLRI
+<span class="bcp14">SHOULD</span> be set to 0, consistent with the procedures defined in
+<span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span>.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3"><span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span> defines the BGP-LS NLRI that can be used to advertise
 Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
 instantiated on a BGP Router.<a href="#section-4-3" class="pilcrow">¶</a></p>
@@ -1578,8 +1581,8 @@ Identifier when the value is unknown.<a href="#section-4.2-8.1.1" class="pilcrow
 </li>
         </ul>
 <p id="section-4.2-9">In addition, the following Link Descriptors TLVs <span class="bcp14">SHOULD</span> appear in
-the Link NLRI as Link Descriptors based on the address family used when
-setting up the BGP Peering using the addresses configured on the links:<a href="#section-4.2-9" class="pilcrow">¶</a></p>
+the Link NLRI as Link Descriptors based on the address family of the
+addresses configured on the links for BGP peering:<a href="#section-4.2-9" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.2-10.1">
             <p id="section-4.2-10.1.1">IPv4 Interface Address (TLV 259) contains the address of the local
@@ -1638,7 +1641,7 @@ Link Name and Maximum Link Bandwidth TLVs to signal the link properties
 </div>
 <p id="section-4.2-13">The above list of TLVs is not exhaustive and other BGP-LS TLVs
 related to the advertisement of the link properties <span class="bcp14">MAY</span> be included
-depending on desired use case.<a href="#section-4.2-13" class="pilcrow">¶</a></p>
+depending on the desired use case.<a href="#section-4.2-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="PREFIX">
@@ -1781,7 +1784,7 @@ Prefix Metric TLV to signal the prefix properties and capabilities
 </div>
 <p id="section-4.3-13">The above list of TLVs is not exhaustive and other BGP-LS TLVs
 related to the advertisement of the prefix properties <span class="bcp14">MAY</span> be included
-depending on desired use case.<a href="#section-4.3-13" class="pilcrow">¶</a></p>
+depending on the desired use case.<a href="#section-4.3-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="SRPOL">
@@ -1791,11 +1794,10 @@ depending on desired use case.<a href="#section-4.3-13" class="pilcrow">¶</a></
         </h3>
 <p id="section-4.4-1">In deployments where Segment Routing (SR) <span>[<a href="#RFC8402" class="cite xref">RFC8402</a>]</span> is deployed in
 the BGP network and the use case requires information about SR Policies
-<span>[<a href="#RFC9256" class="cite xref">RFC9256</a>]</span> or SRv6 SIDs instantiated on the routers, the BGP-LS
-extensions as follows <span class="bcp14">MAY</span> also be advertised. SRv6 is particularly
-applicable in data center networks for both frontend/WAN connectivity
-<span>[<a href="#I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan" class="cite xref">I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan</a>]</span> and AI/ML backend
-fabrics <span>[<a href="#I-D.filsfils-srv6ops-srv6-ai-backend" class="cite xref">I-D.filsfils-srv6ops-srv6-ai-backend</a>]</span>.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<span>[<a href="#RFC9256" class="cite xref">RFC9256</a>]</span> or SRv6 SIDs instantiated on the routers, the following
+BGP-LS extensions <span class="bcp14">MAY</span> also be advertised. SRv6 deployments in data center
+networks are described in <span>[<a href="#I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan" class="cite xref">I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan</a>]</span>
+and <span>[<a href="#I-D.filsfils-srv6ops-srv6-ai-backend" class="cite xref">I-D.filsfils-srv6ops-srv6-ai-backend</a>]</span>.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 <p id="section-4.4-2"><span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span> defines the BGP-LS NLRI that can be used to advertise
 Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
 instantiated on a BGP Router. The Local Node Descriptors TLVs are the
@@ -1817,9 +1819,9 @@ the rest of the procedures are the same as specified in <span>[<a href="#RFC9857
 <p id="section-5-1">In a network where BGP is the only routing protocol, the BGP-LS
 session is used to advertise the necessary information about the local
 node properties, its local links' properties and where necessary the
-prefix's owned by the node. TE Policies, that are instantiated on the
+prefixes owned by the node. TE Policies, that are instantiated on the
 local node (i.e. when it is the head-end for the policy), along with
-their properties are also advertised via the BGP-LS session. This
+their properties may also be advertised via the BGP-LS session. This
 information, once collected across all BGP routers in the network,
 provides a complete topology view of the network. Many of these
 attributes are not part of the base BGP protocol operations and are
@@ -1844,9 +1846,9 @@ itself and even when there are no attributes to be advertised along
 with it.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.1-2">The Node Name Attribute <span class="bcp14">SHOULD</span> be advertised when available.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.1-3">This document introduces some of the TE concepts into BGP-only
-networks. Provisioning of TE Router-ID with a unique address normally
-associated with a loopback interface on the router enables TE use-cases
-for both IPv4 and IPv6 <span class="bcp14">SHOULD</span> be supported. The BGP Router-ID along
+networks. Provisioning of a TE Router-ID with a unique address normally
+associated with a loopback interface on the router <span class="bcp14">SHOULD</span> be supported
+to enable TE use-cases for both IPv4 and IPv6. The BGP Router-ID along
 with the ASN also provides the capability for uniquely identifying a BGP
 router in the network.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
 <p id="section-5.1-4">Other Node Attributes applicable to a BGP Router may also be included
@@ -1859,7 +1861,7 @@ and this document does not describe the exhaustive list.<a href="#section-5.1-4"
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-advertisement-of-routers-lo" class="section-name selfRef">Advertisement of Router's Local Links Attributes</a>
         </h3>
 <p id="section-5.2-1">Each BGP router in a BGP-only network also advertises its local links
-using the Link NLRIs thru BGP-LS. The Link NLRI for a given link
+using the Link NLRIs via BGP-LS. The Link NLRI for a given link
 between two BGP routers is advertised as uni-directional logical
 "half-link" and its link descriptors allow the correlation between the
 two NLRIs "half-links" originated by the peering routers to describe
@@ -1871,7 +1873,7 @@ each interconnecting link using the link IP addresses (refer
 router for each of its local link regardless of whether it has any link
 attributes to be advertised for it.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <p id="section-5.2-3">When doing EBGP multi-hop sessions between directly connected BGP
-routers, the underlying link information would need to learn by some
+routers, the underlying link information would need to be learned by some
 discovery protocol or provisioning entity. The mechanisms to learn the
 underlying link information for BGP-LS advertisements are outside the
 scope of this document. However, to provide a true link topology
@@ -1894,12 +1896,11 @@ topology via BGP-LS as specified in this document, the TE attributes and
 their principles can also be applied to a network running BGP alone. The
 TE attributes for a link have been described in <a href="#LINK-ATTR" class="auto internal xref">Table 2</a> and <span class="bcp14">MAY</span> be
 advertised when TE use-cases are enabled.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
-<p id="section-5.2-7">The use of Layer 3 bundle links which comprise of multiple layer 2
-member links are often used in BGP networks. When BGP session is
-configured over such a layer 3 link, the link attributes of the
-underlying layer 2 links <span class="bcp14">MAY</span> be advertised individually using the L2
-Bundle Member TLV. The applicable attributes for the L2 links are
-described in <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
+<p id="section-5.2-7">Layer 3 bundle links comprising multiple Layer 2 member links are often
+used in BGP networks. When BGP session is configured over such a layer 3
+link, the link attributes of the underlying layer 2 links <span class="bcp14">MAY</span> be
+advertised individually using the L2 Bundle Member TLV. The applicable
+attributes for the L2 links are described in <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
 <p id="section-5.2-8">The Link Name Attribute <span class="bcp14">MAY</span> be advertised when available.<a href="#section-5.2-8" class="pilcrow">¶</a></p>
 <p id="section-5.2-9">Other Link Attributes applicable to a BGP Router may also be included
 and this document does not describe the exhaustive list.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
@@ -2069,6 +2070,11 @@ require configuration; thus, it is the responsibility of the network
 operator to ensure that only trusted nodes (that include both routers
 and controller applications) within the trusted domain are configured to
 receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
+<p id="section-8-5">Operators <span class="bcp14">SHOULD</span> deploy route policy mechanisms (e.g., BGP communities,
+prefix filters, or outbound route policies) on BGP-LS sessions to
+prevent inadvertent leaking of topology information outside the trusted
+domain. Such filtering is particularly important at domain boundaries
+where BGP-LS routes might otherwise propagate to untrusted peers.<a href="#section-8-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
@@ -2089,10 +2095,6 @@ receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <dt id="RFC4271">[RFC4271]</dt>
         <dd>
 <span class="refAuthor">Rekhter, Y., Ed.</span>, <span class="refAuthor">Li, T., Ed.</span>, and <span class="refAuthor">S. Hares, Ed.</span>, <span class="refTitle">"A Border Gateway Protocol 4 (BGP-4)"</span>, <span class="seriesInfo">RFC 4271</span>, <span class="seriesInfo">DOI 10.17487/RFC4271</span>, <time datetime="2006-01" class="refDate">January 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4271">https://www.rfc-editor.org/rfc/rfc4271</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC5714">[RFC5714]</dt>
-        <dd>
-<span class="refAuthor">Shand, M.</span> and <span class="refAuthor">S. Bryant</span>, <span class="refTitle">"IP Fast Reroute Framework"</span>, <span class="seriesInfo">RFC 5714</span>, <span class="seriesInfo">DOI 10.17487/RFC5714</span>, <time datetime="2010-01" class="refDate">January 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5714">https://www.rfc-editor.org/rfc/rfc5714</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
@@ -2150,6 +2152,10 @@ receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <dt id="RFC4272">[RFC4272]</dt>
         <dd>
 <span class="refAuthor">Murphy, S.</span>, <span class="refTitle">"BGP Security Vulnerabilities Analysis"</span>, <span class="seriesInfo">RFC 4272</span>, <span class="seriesInfo">DOI 10.17487/RFC4272</span>, <time datetime="2006-01" class="refDate">January 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4272">https://www.rfc-editor.org/rfc/rfc4272</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5714">[RFC5714]</dt>
+        <dd>
+<span class="refAuthor">Shand, M.</span> and <span class="refAuthor">S. Bryant</span>, <span class="refTitle">"IP Fast Reroute Framework"</span>, <span class="seriesInfo">RFC 5714</span>, <span class="seriesInfo">DOI 10.17487/RFC5714</span>, <time datetime="2010-01" class="refDate">January 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5714">https://www.rfc-editor.org/rfc/rfc5714</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6952">[RFC6952]</dt>
         <dd>

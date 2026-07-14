@@ -99,7 +99,7 @@ Table of Contents
 
 1.  Introduction
 
-   Network operators are going for a BGP-only routing protocol for
+   Network operators are adopting BGP as the sole routing protocol for
    certain networks like Massively Scaled Data Centers (MSDCs).
    [RFC7938] describes the requirement, design and operational aspects
    for use of BGP as the only routing protocol in MSDCs.  The underlying
@@ -227,9 +227,12 @@ Table of Contents
    and the TLVs that map to the respective NLRI and Attribute for each
    type.
 
-   [RFC9086] specifies the BGP Protocol ID to be used for signaling BGP
-   EPE information and the same is used for advertising of topology
-   information in a BGP-only network.
+   [RFC9086] specifies the BGP Protocol-ID value 7 to be used for
+   signaling BGP EPE information.  The same Protocol-ID value (7) is
+   used for advertising topology information in a BGP-only network as
+   specified in this document.  The 64-bit Identifier field in the BGP-
+   LS NLRI SHOULD be set to 0, consistent with the procedures defined in
+   [RFC9086].
 
    [RFC9514] defines the BGP-LS NLRI that can be used to advertise
    Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
@@ -338,9 +341,8 @@ Table of Contents
       Identifier when the value is unknown.
 
    In addition, the following Link Descriptors TLVs SHOULD appear in the
-   Link NLRI as Link Descriptors based on the address family used when
-   setting up the BGP Peering using the addresses configured on the
-   links:
+   Link NLRI as Link Descriptors based on the address family of the
+   addresses configured on the links for BGP peering:
 
    *  IPv4 Interface Address (TLV 259) contains the address of the local
       interface through which the BGP session is established using IPv4
@@ -375,7 +377,7 @@ Table of Contents
 
    The above list of TLVs is not exhaustive and other BGP-LS TLVs
    related to the advertisement of the link properties MAY be included
-   depending on desired use case.
+   depending on the desired use case.
 
 4.3.  Prefix Advertisements
 
@@ -459,17 +461,17 @@ Table of Contents
 
    The above list of TLVs is not exhaustive and other BGP-LS TLVs
    related to the advertisement of the prefix properties MAY be included
-   depending on desired use case.
+   depending on the desired use case.
 
 4.4.  SR Policy and SRv6 SID Advertisements
 
    In deployments where Segment Routing (SR) [RFC8402] is deployed in
    the BGP network and the use case requires information about SR
-   Policies [RFC9256] or SRv6 SIDs instantiated on the routers, the BGP-
-   LS extensions as follows MAY also be advertised.  SRv6 is
-   particularly applicable in data center networks for both frontend/WAN
-   connectivity [I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan] and AI/
-   ML backend fabrics [I-D.filsfils-srv6ops-srv6-ai-backend].
+   Policies [RFC9256] or SRv6 SIDs instantiated on the routers, the
+   following BGP-LS extensions MAY also be advertised.  SRv6 deployments
+   in data center networks are described in
+   [I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan] and
+   [I-D.filsfils-srv6ops-srv6-ai-backend].
 
    [RFC9514] defines the BGP-LS NLRI that can be used to advertise
    Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
@@ -488,15 +490,15 @@ Table of Contents
    In a network where BGP is the only routing protocol, the BGP-LS
    session is used to advertise the necessary information about the
    local node properties, its local links' properties and where
-   necessary the prefix's owned by the node.  TE Policies, that are
+   necessary the prefixes owned by the node.  TE Policies, that are
    instantiated on the local node (i.e. when it is the head-end for the
-   policy), along with their properties are also advertised via the BGP-
-   LS session.  This information, once collected across all BGP routers
-   in the network, provides a complete topology view of the network.
-   Many of these attributes are not part of the base BGP protocol
-   operations and are either configured or provided by other components
-   on the router.  This information needs to be collected from within
-   the node and advertised out via BGP-LS.
+   policy), along with their properties may also be advertised via the
+   BGP-LS session.  This information, once collected across all BGP
+   routers in the network, provides a complete topology view of the
+   network.  Many of these attributes are not part of the base BGP
+   protocol operations and are either configured or provided by other
+   components on the router.  This information needs to be collected
+   from within the node and advertised out via BGP-LS.
 
    The following sections describe the procedures for the propagation of
    the BGP-LS NLRIs on a BGP router into the BGP-LS session.  These
@@ -517,9 +519,9 @@ Table of Contents
    The Node Name Attribute SHOULD be advertised when available.
 
    This document introduces some of the TE concepts into BGP-only
-   networks.  Provisioning of TE Router-ID with a unique address
-   normally associated with a loopback interface on the router enables
-   TE use-cases for both IPv4 and IPv6 SHOULD be supported.  The BGP
+   networks.  Provisioning of a TE Router-ID with a unique address
+   normally associated with a loopback interface on the router SHOULD be
+   supported to enable TE use-cases for both IPv4 and IPv6.  The BGP
    Router-ID along with the ASN also provides the capability for
    uniquely identifying a BGP router in the network.
 
@@ -529,7 +531,7 @@ Table of Contents
 5.2.  Advertisement of Router's Local Links Attributes
 
    Each BGP router in a BGP-only network also advertises its local links
-   using the Link NLRIs thru BGP-LS.  The Link NLRI for a given link
+   using the Link NLRIs via BGP-LS.  The Link NLRI for a given link
    between two BGP routers is advertised as uni-directional logical
    "half-link" and its link descriptors allow the correlation between
    the two NLRIs "half-links" originated by the peering routers to
@@ -544,13 +546,14 @@ Table of Contents
    link attributes to be advertised for it.
 
    When doing EBGP multi-hop sessions between directly connected BGP
-   routers, the underlying link information would need to learn by some
-   discovery protocol or provisioning entity.  The mechanisms to learn
-   the underlying link information for BGP-LS advertisements are outside
-   the scope of this document.  However, to provide a true link topology
-   picture, the advertisement of underlying links is RECOMMENDED for
-   most use-cases instead of a single EBGP peering representation of a
-   link between the routers using their loopback addresses.
+   routers, the underlying link information would need to be learned by
+   some discovery protocol or provisioning entity.  The mechanisms to
+   learn the underlying link information for BGP-LS advertisements are
+   outside the scope of this document.  However, to provide a true link
+   topology picture, the advertisement of underlying links is
+   RECOMMENDED for most use-cases instead of a single EBGP peering
+   representation of a link between the routers using their loopback
+   addresses.
 
    The Link NLRI represents an adjacency between BGP routers and its
    association with the underlying Layer 3 link.  When the underlying
@@ -571,12 +574,11 @@ Table of Contents
    running BGP alone.  The TE attributes for a link have been described
    in Table 2 and MAY be advertised when TE use-cases are enabled.
 
-   The use of Layer 3 bundle links which comprise of multiple layer 2
-   member links are often used in BGP networks.  When BGP session is
-   configured over such a layer 3 link, the link attributes of the
-   underlying layer 2 links MAY be advertised individually using the L2
-   Bundle Member TLV.  The applicable attributes for the L2 links are
-   described in [RFC9085].
+   Layer 3 bundle links comprising multiple Layer 2 member links are
+   often used in BGP networks.  When BGP session is configured over such
+   a layer 3 link, the link attributes of the underlying layer 2 links
+   MAY be advertised individually using the L2 Bundle Member TLV.  The
+   applicable attributes for the L2 links are described in [RFC9085].
 
    The Link Name Attribute MAY be advertised when available.
 
@@ -725,6 +727,13 @@ Table of Contents
    and controller applications) within the trusted domain are configured
    to receive such information.
 
+   Operators SHOULD deploy route policy mechanisms (e.g., BGP
+   communities, prefix filters, or outbound route policies) on BGP-LS
+   sessions to prevent inadvertent leaking of topology information
+   outside the trusted domain.  Such filtering is particularly important
+   at domain boundaries where BGP-LS routes might otherwise propagate to
+   untrusted peers.
+
 9.  References
 
 9.1.  Normative References
@@ -738,10 +747,6 @@ Table of Contents
               Border Gateway Protocol 4 (BGP-4)", RFC 4271,
               DOI 10.17487/RFC4271, January 2006,
               <https://www.rfc-editor.org/rfc/rfc4271>.
-
-   [RFC5714]  Shand, M. and S. Bryant, "IP Fast Reroute Framework",
-              RFC 5714, DOI 10.17487/RFC5714, January 2010,
-              <https://www.rfc-editor.org/rfc/rfc5714>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -820,6 +825,10 @@ Table of Contents
    [RFC4272]  Murphy, S., "BGP Security Vulnerabilities Analysis",
               RFC 4272, DOI 10.17487/RFC4272, January 2006,
               <https://www.rfc-editor.org/rfc/rfc4272>.
+
+   [RFC5714]  Shand, M. and S. Bryant, "IP Fast Reroute Framework",
+              RFC 5714, DOI 10.17487/RFC5714, January 2010,
+              <https://www.rfc-editor.org/rfc/rfc5714>.
 
    [RFC6952]  Jethanandani, M., Patel, K., and L. Zheng, "Analysis of
               BGP, LDP, PCEP, and MSDP Issues According to the Keying

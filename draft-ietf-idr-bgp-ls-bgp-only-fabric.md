@@ -586,22 +586,6 @@ route being advertised.
 Other Prefix Attributes applicable may also be included and this
 document does not describe the exhaustive list.
 
-## Advertisement of Router's SR Policy Candidate Path Attributes {#SRPOL-PROCEDURES}
-
-SR Policies instantiated on a BGP router as head-end MAY be
-advertised via BGP-LS to provide a policy view of the fabric to
-controllers and local TE processes. The SR Policy Candidate Path NLRI
-MUST be advertised only for locally instantiated SR Policies and as
-specified in {{RFC9857}}. Implementations MAY provide configuration
-options to control which SR Policies are advertised from the local node.
-
-## Advertisement of Router's SRv6 SID Attributes {#SRV6SID-PROCEDURES}
-
-SRv6 End SIDs instantiated on a BGP router MAY be advertised via
-BGP-LS on SRv6-capable routers to signal SRv6 capabilities for
-supported services. The SRv6 SID attributes, including the SRv6
-Endpoint Behavior, MUST be included as specified in {{RFC9514}}.
-
 
 # Usage of BGP Topology {#USE-CASES}
 

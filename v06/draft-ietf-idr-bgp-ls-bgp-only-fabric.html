@@ -1244,6 +1244,14 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-sr-te-in-bgp-networks" class="internal xref">SR-TE in BGP Networks</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.1">
+                    <p id="section-toc.1-1.6.2.3.2.1.1"><a href="#section-6.3.1" class="auto internal xref">6.3.1</a>.  <a href="#name-end-to-end-srv6-across-dc-f" class="internal xref">End-to-End SRv6 across DC Frontend and WAN</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.2">
+                    <p id="section-toc.1-1.6.2.3.2.2.1"><a href="#section-6.3.2" class="auto internal xref">6.3.2</a>.  <a href="#name-deterministic-path-placemen" class="internal xref">Deterministic Path Placement in AI Backends</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -2003,8 +2011,44 @@ computation entity to build SR Policies for traffic engineering
 objectives. The topology may be advertised to a centralized controller
 for use-cases requiring centralized computation, or distributed to any
 node in the BGP fabric for use by its local SR-TE process.<a href="#section-6.3-3" class="pilcrow">¶</a></p>
-<p id="section-6.3-4">The actual SR-TE path computation and algorithms are outside the
-scope of this document.<a href="#section-6.3-4" class="pilcrow">¶</a></p>
+<p id="section-6.3-4">Two deployment scenarios that leverage SRv6 SR-TE in BGP-only data
+center fabrics are described below.<a href="#section-6.3-4" class="pilcrow">¶</a></p>
+<div id="end-to-end-srv6-across-dc-frontend-and-wan">
+<section id="section-6.3.1">
+          <h4 id="name-end-to-end-srv6-across-dc-f">
+<a href="#section-6.3.1" class="section-number selfRef">6.3.1. </a><a href="#name-end-to-end-srv6-across-dc-f" class="section-name selfRef">End-to-End SRv6 across DC Frontend and WAN</a>
+          </h4>
+<p id="section-6.3.1-1"><span>[<a href="#I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan" class="cite xref">I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan</a>]</span> describes an SRv6
+end-to-end architecture that unifies the data center frontend and WAN
+under a single SRv6 domain, eliminating the need for protocol
+translation at DCI gateways. In this deployment, SR Policies are used to
+steer traffic end-to-end across the DC and WAN and to enable stateless
+service insertion (e.g., directing traffic through firewall services via
+SRv6 SIDs). The BGP-LS topology collection specified in this document
+provides the node and link information within the BGP-only DC fabric
+that is required by a controller or local SR-TE process to compute such
+SR Policies.<a href="#section-6.3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="deterministic-path-placement-in-ai-backends">
+<section id="section-6.3.2">
+          <h4 id="name-deterministic-path-placemen">
+<a href="#section-6.3.2" class="section-number selfRef">6.3.2. </a><a href="#name-deterministic-path-placemen" class="section-name selfRef">Deterministic Path Placement in AI Backends</a>
+          </h4>
+<p id="section-6.3.2-1"><span>[<a href="#I-D.filsfils-srv6ops-srv6-ai-backend" class="cite xref">I-D.filsfils-srv6ops-srv6-ai-backend</a>]</span> describes the use of SRv6 to
+enable deterministic path placement for GPU-to-GPU traffic in AI/ML
+backend fabrics. In this deployment, an AI scheduler computes optimal
+paths through the Clos fabric to achieve homogeneous link utilization
+and avoid congestion for large, predictable training flows. The paths
+are encoded as SRv6 network programs at the source NIC without requiring
+per-flow state on intermediate fabric nodes. The BGP-LS topology
+collection specified in this document provides the fabric-wide node and
+link information that is required by the AI scheduler or controller to
+compute these deterministic paths.<a href="#section-6.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.2-2">The actual SR-TE path computation and algorithms are outside the
+scope of this document.<a href="#section-6.3.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>

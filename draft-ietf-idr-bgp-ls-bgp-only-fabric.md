@@ -591,7 +591,9 @@ document does not describe the exhaustive list.
 This section describes the key use cases for the BGP topology
 information collected as specified in this document: topology visibility
 for network monitoring, IP Fast Reroute (IPFRR) and protection, and
-Segment Routing Traffic Engineering (SR-TE) in BGP-only networks.
+Segment Routing Traffic Engineering (SR-TE) in BGP-only networks. The
+specific algorithms and mechanisms for each use case are outside the
+scope of this document.
 
 ## Topology View for Monitoring {#TOPO-VIEW}
 
@@ -637,9 +639,9 @@ compute such protection paths at any node within the BGP-only fabric.
 ## SR-TE in BGP Networks {#BGP-SRTE}
 
 SR Traffic Engineering (SR-TE) for BGP provides underlay paths through
-the network for overlay routes and services with specific SLA
-requirements such as path disjointness, low latency paths, inclusion or
-exclusion and other TE considerations.
+the network for overlay routes and services with specific requirements
+such as multi-plane redundancy in Clos topologies where independent
+parallel fabric planes provide path diversity and fault isolation.
 
 {{RFC9256}} specifies the SR Policy architecture. {{RFC9830}} and
 {{RFC9831}} describe the extensions to BGP for signaling of SR Policies
@@ -656,10 +658,8 @@ objectives. The topology may be advertised to a centralized controller
 for use-cases requiring centralized computation, or distributed to any
 node in the BGP fabric for use by its local SR-TE process.
 
-Two deployment scenarios that leverage SRv6 SR-TE in BGP-only data
+Two deployment scenarios that leverage SRv6 TE in BGP-only data
 center fabrics are described below.
-
-### End-to-End SRv6 across DC Frontend and WAN
 
 {{I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan}} describes an SRv6
 end-to-end architecture that unifies the data center frontend and WAN
@@ -671,8 +671,6 @@ SRv6 SIDs). The BGP-LS topology collection specified in this document
 provides the node and link information within the BGP-only DC fabric
 that is required by a controller or local SR-TE process to compute such
 SR Policies.
-
-### Deterministic Path Placement in AI Backends
 
 {{I-D.filsfils-srv6ops-srv6-ai-backend}} describes the use of SRv6 to
 enable deterministic path placement for GPU-to-GPU traffic in AI/ML

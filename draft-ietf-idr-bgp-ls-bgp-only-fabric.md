@@ -221,7 +221,7 @@ possible and they are not precluded by this document.
 
 # Advertising BGP-only Network Topology {#TOPOADVT}
 
-{{RFC9552}} (BGP-LS) defines the BGP-LS NLRI types (i.e. Node NLRI, Link
+BGP-LS {{RFC9552}} defines the BGP-LS NLRI types (i.e. Node NLRI, Link
 NLRI and Prefix NLRI) along with their corresponding BGP-LS Attribute
 (i.e. Node Attribute, Link Attribute or Prefix Attribute) and the TLVs
 that map to the respective NLRI and Attribute for each type.

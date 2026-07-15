@@ -5,14 +5,14 @@
 Inter-Domain Routing                                       K. Talaulikar
 Internet-Draft                                      A. MahendraBabu, Ed.
 Intended status: Standards Track                             C. Filsfils
-Expires: 15 January 2027                                        K. Swamy
+Expires: 16 January 2027                                        K. Swamy
                                                            Cisco Systems
                                                                 S. Zandi
                                                                 G. Dawra
                                                                 LinkedIn
                                                               M. Durrani
                                                                  Equinix
-                                                            14 July 2026
+                                                            15 July 2026
 
 
             BGP Link-State Extensions for BGP-only Networks
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 January 2027.
+   This Internet-Draft will expire on 16 January 2027.
 
 Copyright Notice
 
@@ -89,8 +89,6 @@ Table of Contents
      6.1.  Topology View for Monitoring
      6.2.  IP Fast Reroute and Protection in BGP-only Networks
      6.3.  SR-TE in BGP Networks
-       6.3.1.  End-to-End SRv6 across DC Frontend and WAN
-       6.3.2.  Deterministic Path Placement in AI Backends
    7.  IANA Considerations
    8.  Security Considerations
    9.  References
@@ -609,7 +607,8 @@ Table of Contents
    information collected as specified in this document: topology
    visibility for network monitoring, IP Fast Reroute (IPFRR) and
    protection, and Segment Routing Traffic Engineering (SR-TE) in BGP-
-   only networks.
+   only networks.  The specific algorithms and mechanisms for each use
+   case are outside the scope of this document.
 
 6.1.  Topology View for Monitoring
 
@@ -656,9 +655,10 @@ Table of Contents
 6.3.  SR-TE in BGP Networks
 
    SR Traffic Engineering (SR-TE) for BGP provides underlay paths
-   through the network for overlay routes and services with specific SLA
-   requirements such as path disjointness, low latency paths, inclusion
-   or exclusion and other TE considerations.
+   through the network for overlay routes and services with specific
+   requirements such as multi-plane redundancy in Clos topologies where
+   independent parallel fabric planes provide path diversity and fault
+   isolation.
 
    [RFC9256] specifies the SR Policy architecture.  [RFC9830] and
    [RFC9831] describe the extensions to BGP for signaling of SR Policies
@@ -676,10 +676,8 @@ Table of Contents
    distributed to any node in the BGP fabric for use by its local SR-TE
    process.
 
-   Two deployment scenarios that leverage SRv6 SR-TE in BGP-only data
+   Two deployment scenarios that leverage SRv6 TE in BGP-only data
    center fabrics are described below.
-
-6.3.1.  End-to-End SRv6 across DC Frontend and WAN
 
    [I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan] describes an SRv6
    end-to-end architecture that unifies the data center frontend and WAN
@@ -691,8 +689,6 @@ Table of Contents
    this document provides the node and link information within the BGP-
    only DC fabric that is required by a controller or local SR-TE
    process to compute such SR Policies.
-
-6.3.2.  Deterministic Path Placement in AI Backends
 
    [I-D.filsfils-srv6ops-srv6-ai-backend] describes the use of SRv6 to
    enable deterministic path placement for GPU-to-GPU traffic in AI/ML

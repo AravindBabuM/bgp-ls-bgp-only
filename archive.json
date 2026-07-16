@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-14T02:31:30.269803+00:00",
+  "timestamp": "2026-07-16T02:37:48.872346+00:00",
   "repo": "AravindBabuM/bgp-ls-bgp-only",
   "labels": [
     {
@@ -95,13 +95,13 @@
       "labels": [],
       "body": "Key changes from v05 to v06:\r\n\r\n1. Section 4 tables simplified: Node, Link, and Prefix Attribute tables trimmed to SHOULD/RECOMMENDED TLVs only (Node Name, TE Router-IDs, Link Name, Max Bandwidth, Prefix Metric); other TLVs MAY be included per use case\r\n2. Sections 4.4/4.5 combined: SR Policy and SRv6 SID Advertisements merged into a single compact section referencing RFC9857 and RFC9514\r\n3. New use-case sections: Added IPFRR in BGP-only networks (Section 6.3) and Efficient Remote Protection for AI/ML fabrics (Section 6.4)\r\n4. Section 6 restructured: Flattened hierarchy \u2014 SR-TE, IPFRR, and ERP as peer sections\r\n5. Grammar/editorial fixes: \"setup\" \u2192 \"set up\", non-BCP14 \"MAY\" \u2192 \"may\", \"sessions\" \u2192 \"IP addresses\", Link Descriptor wording\r\n6. New references: RFC5714, RFC9855, I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network, I-D.clad-rtgwg-ipfrr-aiml, I-D.clad-rtgwg-efficient-remote-protection",
       "createdAt": "2026-07-06T14:04:25Z",
-      "updatedAt": "2026-07-06T17:35:38Z",
+      "updatedAt": "2026-07-15T11:58:30Z",
       "baseRepository": "AravindBabuM/bgp-ls-bgp-only",
       "baseRefName": "main",
       "baseRefOid": "02e71401046906d47a359c0c38a9b278fc79934f",
       "headRepository": "AravindBabuM/bgp-ls-bgp-only",
       "headRefName": "v06",
-      "headRefOid": "01e8fb9ac377c6c41204c317ac4aa392d46d391a",
+      "headRefOid": "ab61cf659dc3c48d77b5cb32811eaa4fbeee593e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,

@@ -3,16 +3,16 @@
 
 
 Inter-Domain Routing                                       K. Talaulikar
-Internet-Draft                                      A. MahendraBabu, Ed.
+Internet-Draft                                   A. B. MahendraBabu, Ed.
 Intended status: Standards Track                             C. Filsfils
-Expires: 16 January 2027                                        K. Swamy
+Expires: 20 January 2027                                        K. Swamy
                                                            Cisco Systems
                                                                 S. Zandi
                                                                 G. Dawra
                                                                 LinkedIn
                                                               M. Durrani
                                                                  Equinix
-                                                            15 July 2026
+                                                            19 July 2026
 
 
             BGP Link-State Extensions for BGP-only Networks
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 January 2027.
+   This Internet-Draft will expire on 20 January 2027.
 
 Copyright Notice
 
@@ -896,7 +896,7 @@ Authors' Addresses
    Email: ketant.ietf@gmail.com
 
 
-   AravindBabu MahendraBabu (editor)
+   Aravind Babu MahendraBabu (editor)
    Cisco Systems
    India
    Email: aramahen@cisco.com

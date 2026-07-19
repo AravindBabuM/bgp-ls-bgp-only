@@ -24,7 +24,7 @@ author:
     country: India
     email: ketant.ietf@gmail.com
  -
-    fullname: AravindBabu MahendraBabu
+    fullname: Aravind Babu MahendraBabu
     role: editor
     organization: Cisco Systems
     country: India

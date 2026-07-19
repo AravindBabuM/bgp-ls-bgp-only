@@ -23,8 +23,8 @@ network.
 <meta content="xml2rfc 3.34.0" name="generator">
 <meta content="BGP" name="keyword">
 <meta content="Segment Routing" name="keyword">
-<meta content="MPLS" name="keyword">
-<meta content="draft-ietf-idr-bgp-ls-bgp-only-fabric-05" name="ietf.draft">
+<meta content="SRv6" name="keyword">
+<meta content="draft-ietf-idr-bgp-ls-bgp-only-fabric-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.34.0
     Python 3.14.5
@@ -34,13 +34,13 @@ network.
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.10.0
+    platformdirs 4.10.1
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
     wcwidth 0.8.2
 -->
-<link href="draft-ietf-idr-bgp-ls-bgp-only-fabric-latest.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-idr-bgp-ls-bgp-only-fabric.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1061,7 +1061,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Talaulikar, et al.</td>
-<td class="center">Expires 7 January 2027</td>
+<td class="center">Expires 20 January 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1071,15 +1071,15 @@ svg {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Inter-Domain Routing</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-ietf-idr-bgp-ls-bgp-only-fabric-05</dd>
+<dd class="internet-draft">draft-ietf-idr-bgp-ls-bgp-only-fabric-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-07-06" class="published">6 July 2026</time>
+<time datetime="2026-07-19" class="published">19 July 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-01-07">7 January 2027</time></dd>
+<dd class="expires"><time datetime="2027-01-20">20 January 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1124,6 +1124,17 @@ defines extensions to the BGP Link-state (BGP-LS) address-family and the
 procedures for advertisement of topology information in a BGP-only
 network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-discussion-venues">
+<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">Discussion of this document takes place on the
+    Inter-Domain Routing Working Group mailing list (idr@ietf.org),
+    which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/idr/">https://mailarchive.ietf.org/arch/browse/idr/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+    <span><a href="https://github.com/AravindBabuM/bgp-ls-bgp-only">https://github.com/AravindBabuM/bgp-ls-bgp-only</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
         <h2 id="name-status-of-this-memo">
@@ -1143,7 +1154,7 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1204,10 +1215,7 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-prefix-advertisements" class="internal xref">Prefix Advertisements</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-sr-policy-advertisements" class="internal xref">SR Policy Advertisements</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
-                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-srv6-sid-advertisements" class="internal xref">SRv6 SID Advertisements</a></p>
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-sr-policy-and-srv6-sid-adve" class="internal xref">SR Policy and SRv6 SID Advertisements</a></p>
 </li>
             </ul>
 </li>
@@ -1223,12 +1231,6 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-advertisement-of-routers-pr" class="internal xref">Advertisement of Router's Prefix Attributes</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
-                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-advertisement-of-routers-sr" class="internal xref">Advertisement of Router's SR Policy Candidate Path Attributes</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
-                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-advertisement-of-routers-srv" class="internal xref">Advertisement of Router's SRv6 SID Attributes</a></p>
-</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
@@ -1238,7 +1240,10 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-topology-view-for-monitorin" class="internal xref">Topology View for Monitoring</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-sr-te-in-bgp-networks" class="internal xref">SR-TE in BGP Networks</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-ip-fast-reroute-and-protect" class="internal xref">IP Fast Reroute and Protection in BGP-only Networks</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-sr-te-in-bgp-networks" class="internal xref">SR-TE in BGP Networks</a></p>
 </li>
             </ul>
 </li>
@@ -1274,7 +1279,7 @@ network.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Network operators are going for a BGP-only routing protocol for
+<p id="section-1-1">Network operators are adopting BGP as the sole routing protocol for
 certain networks like Massively Scaled Data Centers (MSDCs). <span>[<a href="#RFC7938" class="cite xref">RFC7938</a>]</span>
 describes the requirement, design and operational aspects for use of BGP
 as the only routing protocol in MSDCs. The underlying link and topology
@@ -1316,14 +1321,14 @@ directly connected nodes in the fabric. While a data-center design
 <span>[<a href="#RFC7938" class="cite xref">RFC7938</a>]</span> is used as a reference, the topology advertisement and its
 use for computation may also apply to other networks with BGP-only
 fabric or to BGP-only portions of a larger network topology.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">BGP hop-by-hop routing can be setup using EBGP single-hop sessions
+<p id="section-2-2">BGP hop-by-hop routing can be set up using EBGP single-hop sessions
 over individual links between directly connected routers using their
 link addresses for peering as described in <span>[<a href="#RFC7938" class="cite xref">RFC7938</a>]</span>. In such a
 design, the neighbors' link addresses may be provisioned for peering and
 the EBGP session operating directly over the link performs the
 monitoring of the neighbor on that link. A variation of this design
-would be that the EBGP session is setup between directly connected
-routers using their loopback sessions. The mechanisms for discovery of
+would be that the EBGP session is set up between directly connected
+routers using their loopback IP addresses. The mechanisms for discovery of
 the neighbor's link addresses and their monitoring on a per link basis
 are outside the scope of this document.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">Though this document uses the EBGP based design as a reference, it
@@ -1344,10 +1349,10 @@ node, links, and prefixes. <a href="#_figure-collection" class="auto internal xr
 deployment scenario. Every BGP router in the network is enabled for
 BGP-LS and forms BGP-LS sessions with one or more centralized BGP-LS
 speakers over which it sends its local topology information.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">Each BGP router <span class="bcp14">MAY</span> also receive the topology information from all
+<p id="section-3-2">Each BGP router may also receive the topology information from all
 other BGP routers via these centralized BGP-LS speakers. This way, any
-BGP router (as also the centralized BGP-LS speakers) <span class="bcp14">MAY</span> obtain
-aggregated Link-State information for the entire BGP network. An
+BGP router (as also the centralized BGP-LS speakers) may obtain
+aggregated Link-State information for the BGP network. An
 external component (e.g. a controller) can obtain this information from
 the centralized BGP-LS speakers or directly by doing BGP-LS peering to
 the BGP routers. An internal software component on any of the BGP
@@ -1394,7 +1399,7 @@ topology information from its local BGP process.<a href="#section-3-2" class="pi
 <p id="section-3.1-1">The peering model described above relies on the base BGP IPv4 or
 IPv6 routing underlay (e.g. as described in <span>[<a href="#RFC7938" class="cite xref">RFC7938</a>]</span>) or any other
 mechanism for reachability for the BGP-LS session establishment with the
-centralized BGP speakers. A variation of this model would be to setup
+centralized BGP speakers. A variation of this model would be to set up
 reachability to the centralized BGP speakers (or controller) over the
 out of band management network and for each BGP router in the fabric to
 use this management network for the BGP-LS session establishment with
@@ -1416,13 +1421,16 @@ possible and they are not precluded by this document.<a href="#section-3.1-2" cl
       <h2 id="name-advertising-bgp-only-networ">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-advertising-bgp-only-networ" class="section-name selfRef">Advertising BGP-only Network Topology</a>
       </h2>
-<p id="section-4-1"><span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span> (BGP-LS) defines the BGP-LS NLRI types (i.e. Node NLRI, Link
+<p id="section-4-1">BGP-LS <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span> defines the BGP-LS NLRI types (i.e. Node NLRI, Link
 NLRI and Prefix NLRI) along with their corresponding BGP-LS Attribute
 (i.e. Node Attribute, Link Attribute or Prefix Attribute) and the TLVs
 that map to the respective NLRI and Attribute for each type.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2"><span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span> specifies the BGP Protocol ID to be used for signaling BGP
-EPE information and the same is used for advertising of topology
-information in a BGP-only network.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-2"><span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span> specifies the BGP Protocol-ID value 7 to be used for
+signaling BGP EPE information. The same Protocol-ID value (7) is used
+for advertising topology information in a BGP-only network as specified
+in this document. The 64-bit Identifier field in the BGP-LS NLRI
+<span class="bcp14">SHOULD</span> be set to 0, consistent with the procedures defined in
+<span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span>.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3"><span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span> defines the BGP-LS NLRI that can be used to advertise
 Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
 instantiated on a BGP Router.<a href="#section-4-3" class="pilcrow">¶</a></p>
@@ -1466,10 +1474,11 @@ router ASN.<a href="#section-4.1-5.1.1" class="pilcrow">¶</a></p>
 originating BGP router.<a href="#section-4.1-5.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.1-6">The BGP-LS Attribute associated with the Node NLRI <span class="bcp14">MAY</span> include the
-following TLVs that are defined in respective documents to signal the
-router properties and capabilities (<a href="#NODE-PROCEDURES" class="auto internal xref">Section 5.1</a> defines the
-procedures for their advertisements):<a href="#section-4.1-6" class="pilcrow">¶</a></p>
+<p id="section-4.1-6">The BGP-LS Attribute associated with the Node NLRI <span class="bcp14">SHOULD</span> include the
+Node Name TLV and <span class="bcp14">MAY</span> include the TE Router-ID TLVs (to indicate a
+unique reachable IP address for that node) to signal the router
+properties (<a href="#NODE-PROCEDURES" class="auto internal xref">Section 5.1</a> defines the procedures for their
+advertisements):<a href="#section-4.1-6" class="pilcrow">¶</a></p>
 <span id="name-node-attribute-tlvs"></span><div id="NODE-ATTR">
 <table class="center" id="table-1">
           <caption>
@@ -1484,13 +1493,6 @@ procedures for their advertisements):<a href="#section-4.1-6" class="pilcrow">¶
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">266</td>
-              <td class="text-left" rowspan="1" colspan="1">Node MSD</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC8814" class="cite xref">RFC8814</a>]</span>
-</td>
-            </tr>
             <tr>
               <td class="text-center" rowspan="1" colspan="1">1026</td>
               <td class="text-left" rowspan="1" colspan="1">Node Name</td>
@@ -1512,46 +1514,12 @@ procedures for their advertisements):<a href="#section-4.1-6" class="pilcrow">¶
                 <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
 </td>
             </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1032</td>
-              <td class="text-left" rowspan="1" colspan="1">S-BFD Discriminators</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9247" class="cite xref">RFC9247</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1034</td>
-              <td class="text-left" rowspan="1" colspan="1">SR Capabilities</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1035</td>
-              <td class="text-left" rowspan="1" colspan="1">SR Algorithm</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1036</td>
-              <td class="text-left" rowspan="1" colspan="1">SR Local Block</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1038</td>
-              <td class="text-left" rowspan="1" colspan="1">SRv6 Capabilities</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span>
-</td>
-            </tr>
           </tbody>
         </table>
 </div>
-<p id="section-4.1-8">The above list of TLVs is not exhaustive but indicative as of the
-time of writing of this document.<a href="#section-4.1-8" class="pilcrow">¶</a></p>
+<p id="section-4.1-8">The above list of TLVs is not exhaustive and other BGP-LS TLVs
+related to the advertisement of the node properties <span class="bcp14">MAY</span> be included
+depending on the desired use case.<a href="#section-4.1-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="LINK">
@@ -1613,8 +1581,8 @@ Identifier when the value is unknown.<a href="#section-4.2-8.1.1" class="pilcrow
 </li>
         </ul>
 <p id="section-4.2-9">In addition, the following Link Descriptors TLVs <span class="bcp14">SHOULD</span> appear in
-the Link NLRI as Link Descriptors based on the address family used for
-setting up the BGP Peering or the addresses configured on the links:<a href="#section-4.2-9" class="pilcrow">¶</a></p>
+the Link NLRI as Link Descriptors based on the address family of the
+addresses configured on the links for BGP peering:<a href="#section-4.2-9" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.2-10.1">
             <p id="section-4.2-10.1.1">IPv4 Interface Address (TLV 259) contains the address of the local
@@ -1637,10 +1605,9 @@ peer interface used by the BGP session establishment using IPv6
 address.<a href="#section-4.2-10.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.2-11">The BGP-LS Attribute associated with the Link NLRI <span class="bcp14">MAY</span> include the
-following TLVs that are defined in respective documents to signal the
-router's local links' properties and capabilities (<a href="#LINK-PROCEDURES" class="auto internal xref">Section 5.2</a>
-defines the procedures for their advertisements):<a href="#section-4.2-11" class="pilcrow">¶</a></p>
+<p id="section-4.2-11">The BGP-LS Attribute associated with the Link NLRI <span class="bcp14">SHOULD</span> include the
+Link Name and Maximum Link Bandwidth TLVs to signal the link properties
+(<a href="#LINK-PROCEDURES" class="auto internal xref">Section 5.2</a> defines the procedures for their advertisements):<a href="#section-4.2-11" class="pilcrow">¶</a></p>
 <span id="name-link-attribute-tlvs"></span><div id="LINK-ATTR">
 <table class="center" id="table-2">
           <caption>
@@ -1656,36 +1623,8 @@ defines the procedures for their advertisements):<a href="#section-4.2-11" class
           </thead>
           <tbody>
             <tr>
-              <td class="text-center" rowspan="1" colspan="1">267</td>
-              <td class="text-left" rowspan="1" colspan="1">Link MSD</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC8814" class="cite xref">RFC8814</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1088</td>
-              <td class="text-left" rowspan="1" colspan="1">Administrative group (color)</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
-</td>
-            </tr>
-            <tr>
               <td class="text-center" rowspan="1" colspan="1">1089</td>
               <td class="text-left" rowspan="1" colspan="1">Maximum link bandwidth</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1092</td>
-              <td class="text-left" rowspan="1" colspan="1">TE Default Metric</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1096</td>
-              <td class="text-left" rowspan="1" colspan="1">SRLG</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
 </td>
@@ -1697,81 +1636,12 @@ defines the procedures for their advertisements):<a href="#section-4.2-11" class
                 <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
 </td>
             </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1101</td>
-              <td class="text-left" rowspan="1" colspan="1">EPE Peer Node SID</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1102</td>
-              <td class="text-left" rowspan="1" colspan="1">EPE Peer Adj SID</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1103</td>
-              <td class="text-left" rowspan="1" colspan="1">EPE Peer Set SID</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1106</td>
-              <td class="text-left" rowspan="1" colspan="1">SRv6 End.X SID</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1114</td>
-              <td class="text-left" rowspan="1" colspan="1">Unidirectional link delay</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC8571" class="cite xref">RFC8571</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1115</td>
-              <td class="text-left" rowspan="1" colspan="1">Min/Max Unidirectional link delay</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC8571" class="cite xref">RFC8571</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1116</td>
-              <td class="text-left" rowspan="1" colspan="1">Unidirectional delay variation</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC8571" class="cite xref">RFC8571</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1117</td>
-              <td class="text-left" rowspan="1" colspan="1">Unidirectional link loss</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC8571" class="cite xref">RFC8571</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1172</td>
-              <td class="text-left" rowspan="1" colspan="1">L2 Bundle Member</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1173</td>
-              <td class="text-left" rowspan="1" colspan="1">Extended Administrative group (color)</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9104" class="cite xref">RFC9104</a>]</span>
-</td>
-            </tr>
           </tbody>
         </table>
 </div>
-<p id="section-4.2-13">The above list of TLVs is not exhaustive but indicative as of the
-time of writing of this document.<a href="#section-4.2-13" class="pilcrow">¶</a></p>
+<p id="section-4.2-13">The above list of TLVs is not exhaustive and other BGP-LS TLVs
+related to the advertisement of the link properties <span class="bcp14">MAY</span> be included
+depending on the desired use case.<a href="#section-4.2-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="PREFIX">
@@ -1865,7 +1735,7 @@ The format of this TLV is as follows:<a href="#section-4.3-6" class="pilcrow">¶
             <tr>
               <td class="text-center" rowspan="1" colspan="1">2</td>
               <td class="text-left" rowspan="1" colspan="1">Attached</td>
-              <td class="text-left" rowspan="1" colspan="1">Directly attached node's prefix e.g host</td>
+              <td class="text-left" rowspan="1" colspan="1">Directly attached node's prefix e.g. host</td>
             </tr>
             <tr>
               <td class="text-center" rowspan="1" colspan="1">3</td>
@@ -1885,10 +1755,9 @@ The format of this TLV is as follows:<a href="#section-4.3-6" class="pilcrow">¶
           </tbody>
         </table>
 </div>
-<p id="section-4.3-11">The BGP-LS Attribute associated with the Prefix NLRI <span class="bcp14">MAY</span> include the
-following TLVs that are defined in respective documents to signal the
-router's own prefix properties and capabilities (<a href="#PREFIX-PROCEDURES" class="auto internal xref">Section 5.3</a>
-defines the procedures for their advertisements):<a href="#section-4.3-11" class="pilcrow">¶</a></p>
+<p id="section-4.3-11">The BGP-LS Attribute associated with the Prefix NLRI <span class="bcp14">SHOULD</span> include the
+Prefix Metric TLV to signal the prefix properties and capabilities
+(<a href="#PREFIX-PROCEDURES" class="auto internal xref">Section 5.3</a> defines the procedures for their advertisements):<a href="#section-4.3-11" class="pilcrow">¶</a></p>
 <span id="name-prefix-attribute-tlvs"></span><div id="PREFIX-ATTR">
 <table class="center" id="table-4">
           <caption>
@@ -1910,97 +1779,32 @@ defines the procedures for their advertisements):<a href="#section-4.3-11" class
                 <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span>
 </td>
             </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1158</td>
-              <td class="text-left" rowspan="1" colspan="1">Prefix SID</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1162</td>
-              <td class="text-left" rowspan="1" colspan="1">SRv6 Locator</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1170</td>
-              <td class="text-left" rowspan="1" colspan="1">Prefix Attributes Flags</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
-            <tr>
-              <td class="text-center" rowspan="1" colspan="1">1171</td>
-              <td class="text-left" rowspan="1" colspan="1">Source Router Identifier</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>
-</td>
-            </tr>
           </tbody>
         </table>
 </div>
-<p id="section-4.3-13">The above list of TLVs is not exhaustive but indicative as of the
-time of writing of this document.<a href="#section-4.3-13" class="pilcrow">¶</a></p>
+<p id="section-4.3-13">The above list of TLVs is not exhaustive and other BGP-LS TLVs
+related to the advertisement of the prefix properties <span class="bcp14">MAY</span> be included
+depending on the desired use case.<a href="#section-4.3-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="SRPOL">
 <section id="section-4.4">
-        <h3 id="name-sr-policy-advertisements">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-sr-policy-advertisements" class="section-name selfRef">SR Policy Advertisements</a>
+        <h3 id="name-sr-policy-and-srv6-sid-adve">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-sr-policy-and-srv6-sid-adve" class="section-name selfRef">SR Policy and SRv6 SID Advertisements</a>
         </h3>
-<p id="section-4.4-1"><span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span> defines SR Policy Candidate Path NLRI Type with its Headend
-Node and SR Policy Candidate Path Descriptor TLVs as follows:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.4-2">
-<pre>
-  0                   1                   2                   3
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
- +-+-+-+-+-+-+-+-+
- |  Protocol-ID  |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |                        Identifier                             |
- |                        (64 bits)                              |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- //                Headend (Node Descriptors)                   //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- //       SR Policy Candidate Path Descriptors (variable)       //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</pre><a href="#section-4.4-2" class="pilcrow">¶</a>
-</div>
-<p id="section-4.4-3">The Headend Node Descriptors TLVs are the same as specified in
-<a href="#NODE" class="auto internal xref">Section 4.1</a>. The semantics for the SR Policy Candidate Path Descriptor TLVs
-and the TLVs associated with the BGP-LS Attribute are used as specified
-in <span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span>.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="SRV6">
-<section id="section-4.5">
-        <h3 id="name-srv6-sid-advertisements">
-<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-srv6-sid-advertisements" class="section-name selfRef">SRv6 SID Advertisements</a>
-        </h3>
-<p id="section-4.5-1"><span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span> defines SRv6 NLRI Type and its Local Node and SRv6 SID
-Descriptor TLVs as follows:<a href="#section-4.5-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.5-2">
-<pre>
-  0                   1                   2                   3
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
- +-+-+-+-+-+-+-+-+
- |  Protocol-ID  |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |                        Identifier                             |
- |                        (8 octets)                             |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |               Local Node Descriptors (variable)              //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |               SRv6 SID Descriptors (variable)                //
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</pre><a href="#section-4.5-2" class="pilcrow">¶</a>
-</div>
-<p id="section-4.5-3">The Local Node Descriptors TLVs are the same as specified in
-<a href="#NODE" class="auto internal xref">Section 4.1</a>. The semantics for the SRv6 SID Descriptor TLVs and the TLVs
-associated with the BGP-LS Attribute are used as specified in
-<span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span>.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">In deployments where Segment Routing (SR) <span>[<a href="#RFC8402" class="cite xref">RFC8402</a>]</span> is deployed in
+the BGP network and the use case requires information about SR Policies
+<span>[<a href="#RFC9256" class="cite xref">RFC9256</a>]</span> or SRv6 SIDs instantiated on the routers, the following
+BGP-LS extensions <span class="bcp14">MAY</span> also be advertised.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-2"><span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span> defines the BGP-LS NLRI that can be used to advertise
+Segment Routing for IPv6 (SRv6) Segment Identifier (SID) information
+instantiated on a BGP Router. The Local Node Descriptors TLVs are the
+same as specified in <a href="#NODE" class="auto internal xref">Section 4.1</a> and the rest of the procedures are the
+same as specified in <span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span>.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.4-3"><span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span> defines the BGP-LS NLRIs that can be used to advertise
+information about SR Policies instantiated on a BGP Router headend. The
+Headend Node Descriptors TLVs are the same as specified in <a href="#NODE" class="auto internal xref">Section 4.1</a> and
+the rest of the procedures are the same as specified in <span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span>.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2013,9 +1817,9 @@ associated with the BGP-LS Attribute are used as specified in
 <p id="section-5-1">In a network where BGP is the only routing protocol, the BGP-LS
 session is used to advertise the necessary information about the local
 node properties, its local links' properties and where necessary the
-prefix's owned by the node. TE Policies, that are instantiated on the
+prefixes owned by the node. SR Policies, that are instantiated on the
 local node (i.e. when it is the head-end for the policy), along with
-their properties are also advertised via the BGP-LS session. This
+their properties may also be advertised via the BGP-LS session. This
 information, once collected across all BGP routers in the network,
 provides a complete topology view of the network. Many of these
 attributes are not part of the base BGP protocol operations and are
@@ -2038,48 +1842,14 @@ BGP-only network enables the discovery of all the router nodes in the
 topology. The Node NLRI <span class="bcp14">MUST</span> be generated by a BGP router only for
 itself and even when there are no attributes to be advertised along
 with it.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.1-2">The Node attributes defined currently related to Segment Routing
-(SR) <span>[<a href="#RFC8402" class="cite xref">RFC8402</a>]</span> have been described in <a href="#NODE-ATTR" class="auto internal xref">Table 1</a> and are to be
-advertised when SR is enabled. This includes:<a href="#section-5.1-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.1-3.1">
-            <p id="section-5.1-3.1.1">All SR enabled routers support the default SR algorithm 0 and
-<span class="bcp14">MUST</span> advertise it in the SR Algorithm TLV. Other algorithms
-(including Flexible Algorithm <span>[<a href="#RFC9350" class="cite xref">RFC9350</a>]</span>) <span class="bcp14">SHOULD</span> be advertised
-when supported.<a href="#section-5.1-3.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.1-3.2">
-            <p id="section-5.1-3.2.1">The Segment Routing Global Block (SRGB) provisioned on the router
-which is used by BGP Prefix SIDs <span>[<a href="#RFC8669" class="cite xref">RFC8669</a>]</span> and other SR control
-plane protocols on the router <span class="bcp14">MUST</span> be advertised. The value for
-Flags field in the TLV is not defined for BGP protocol and <span class="bcp14">MUST</span> be
-set to 0 by the originator and ignored by receivers.<a href="#section-5.1-3.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.1-3.3">
-            <p id="section-5.1-3.3.1">The Segment Routing Local Block (SRLB) provisioned on the router
-which <span class="bcp14">MAY</span> be used by BGP EPE SIDs <span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span> <span class="bcp14">SHOULD</span> be advertised.
-The value for Flags field in the TLV is not defined for BGP protocol
-and <span class="bcp14">MUST</span> be set to 0 by the originator and ignored by receivers.<a href="#section-5.1-3.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.1-3.4">
-            <p id="section-5.1-3.4.1">The Node level MSD provides the Node's capabilities for SR SID
-operations and <span class="bcp14">SHOULD</span> be advertised.<a href="#section-5.1-3.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.1-3.5">
-            <p id="section-5.1-3.5.1">When the router supports SR Flexible Algorithms and is provisioned
-with the Flexible Algorithm Definition (FAD), then it <span class="bcp14">MUST</span>
-advertise the same.<a href="#section-5.1-3.5.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-5.1-4">The Node Name Attribute <span class="bcp14">SHOULD</span> be advertised when available.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.1-5">This document introduces some of the TE concepts into BGP-only
-networks. Provisioning of TE Router-ID with a unique address normally
-associated with a loopback interface on the router enables TE use-cases
-for both IPv4 and IPv6 <span class="bcp14">SHOULD</span> be supported. The BGP Router-ID along
-with the ASN also provides the capability for uniquely identifying a BGP
-router in the network.<a href="#section-5.1-5" class="pilcrow">¶</a></p>
-<p id="section-5.1-6">Other Node Attributes applicable to a BGP Router may also be included
-and this document does not describe the exhaustive list.<a href="#section-5.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.1-2">The Node Name Attribute <span class="bcp14">SHOULD</span> be advertised when available.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1-3">The TE Router-ID, normally provisioned with a unique address
+associated with a loopback interface on the router, <span class="bcp14">SHOULD</span> be
+advertised to enable TE use-cases for both IPv4 and IPv6. The BGP Router-ID
+along with the ASN also provides the capability for uniquely identifying a
+BGP router in the network.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1-4">Other Node Attributes applicable to a BGP Router may also be included
+and this document does not describe the exhaustive list.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="LINK-PROCEDURES">
@@ -2088,7 +1858,7 @@ and this document does not describe the exhaustive list.<a href="#section-5.1-6"
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-advertisement-of-routers-lo" class="section-name selfRef">Advertisement of Router's Local Links Attributes</a>
         </h3>
 <p id="section-5.2-1">Each BGP router in a BGP-only network also advertises its local links
-using the Link NLRIs thru BGP-LS. The Link NLRI for a given link
+using the Link NLRIs via BGP-LS. The Link NLRI for a given link
 between two BGP routers is advertised as uni-directional logical
 "half-link" and its link descriptors allow the correlation between the
 two NLRIs "half-links" originated by the peering routers to describe
@@ -2100,7 +1870,7 @@ each interconnecting link using the link IP addresses (refer
 router for each of its local link regardless of whether it has any link
 attributes to be advertised for it.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <p id="section-5.2-3">When doing EBGP multi-hop sessions between directly connected BGP
-routers, the underlying link information would need to learn by some
+routers, the underlying link information would need to be learned by some
 discovery protocol or provisioning entity. The mechanisms to learn the
 underlying link information for BGP-LS advertisements are outside the
 scope of this document. However, to provide a true link topology
@@ -2120,64 +1890,18 @@ topology.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
 <p id="section-5.2-6">TE attributes for links have been traditionally associated with Link
 State Routing protocols. However, with the ability to discover the link
 topology via BGP-LS as specified in this document, the TE attributes and
-their principles can also be applied to a network running BGP alone. The
-TE attributes for a link have been described in <a href="#LINK-ATTR" class="auto internal xref">Table 2</a> and <span class="bcp14">MAY</span> be
-advertised when TE use-cases are enabled. This includes:<a href="#section-5.2-6" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.2-7.1">
-            <p id="section-5.2-7.1.1">The maximum bandwidth of a link is its protocol independent
-attribute and <span class="bcp14">SHOULD</span> be advertised.<a href="#section-5.2-7.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.2-7.2">
-            <p id="section-5.2-7.2.1">TE concepts of Administrative Groups (also known as affinities) and
-Shared Risk Link Groups (SRLGs) <span class="bcp14">MAY</span> be provisioned locally on links
-and then <span class="bcp14">MUST</span> be advertised.<a href="#section-5.2-7.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.2-7.3">
-            <p id="section-5.2-7.3.1">The BGP base protocol does not operate with link metrics, however, a
-TE metric concept can be introduced in a BGP only network as well
-for TE use-cases. Implementations <span class="bcp14">MAY</span> provide the ability to
-provision TE metric value for a link for BGP use including a
-different default value for it. The TE metric attribute <span class="bcp14">SHOULD</span> be
-advertised for each link when configured and its default value is
-taken as 100. When not advertised for a link, implementations who
-intend to use the TE metric <span class="bcp14">MUST</span> assume the value to be 100.<a href="#section-5.2-7.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.2-7.4">
-            <p id="section-5.2-7.4.1">The delay and loss TE metrics for links are measured via MPLS
-Performance Monitoring <span>[<a href="#RFC6374" class="cite xref">RFC6374</a>]</span> and their measurement mechanism
-over a link are independent of the routing protocol. The same
-mechanism <span class="bcp14">MAY</span> be enabled in BGP-only networks and their values
-advertised via BGP-LS.<a href="#section-5.2-7.4.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-5.2-8">The Link attributes defined currently related to the Segment Routing
-feature BGP EPE <span>[<a href="#RFC9086" class="cite xref">RFC9086</a>]</span> have been described in <a href="#LINK-ATTR" class="auto internal xref">Table 2</a> and are
-to be advertised when SR use-cases are enabled. This includes:<a href="#section-5.2-8" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.2-9.1">
-            <p id="section-5.2-9.1.1">The BGP Peering SIDs provide a functionality similar to
-Adjacency-SID (refer <span>[<a href="#RFC8402" class="cite xref">RFC8402</a>]</span>) in BGP-only networks.
-Implementations <span class="bcp14">SHOULD</span> allocate the BGP Peer-Adjacency SID for all
-its links and the BGP Peer-Node SID for all its peer routers.
-Implementations <span class="bcp14">MAY</span> allocate the BGP Peer-Set SID based on local
-configuration.<a href="#section-5.2-9.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.2-9.2">
-            <p id="section-5.2-9.2.1">The Link level MSD provides the per link capabilities for SR SID
-operations and <span class="bcp14">SHOULD</span> be advertised when the router links have
-differing capabilities.<a href="#section-5.2-9.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-5.2-10">The use of Layer 3 bundle links which comprise of multiple layer 2
-member links are often used in BGP networks. When BGP session is
-configured over such a layer 3 link, the link attributes of the
-underlying layer 2 links <span class="bcp14">MAY</span> be advertised individually using the L2
-Bundle Member TLV. The applicable attributes for the L2 links are
-described in <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>.<a href="#section-5.2-10" class="pilcrow">¶</a></p>
-<p id="section-5.2-11">The Link Name Attribute <span class="bcp14">MAY</span> be advertised when available.<a href="#section-5.2-11" class="pilcrow">¶</a></p>
-<p id="section-5.2-12">Other Link Attributes applicable to a BGP Router may also be included
-and this document does not describe the exhaustive list.<a href="#section-5.2-12" class="pilcrow">¶</a></p>
+their principles can also be applied to a network running BGP alone.
+Additional link attribute TLVs related to TE (e.g., TE Default Metric,
+Administrative Group, SRLG) as defined in <span>[<a href="#RFC9552" class="cite xref">RFC9552</a>]</span> <span class="bcp14">MAY</span> be included
+in the Link NLRI when TE use-cases are enabled.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+<p id="section-5.2-7">Layer 3 bundle links comprising multiple Layer 2 member links are often
+used in BGP networks. When BGP session is configured over such a layer 3
+link, the link attributes of the underlying layer 2 links <span class="bcp14">MAY</span> be
+advertised individually using the L2 Bundle Member TLV. The applicable
+attributes for the L2 links are described in <span>[<a href="#RFC9085" class="cite xref">RFC9085</a>]</span>.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
+<p id="section-5.2-8">The Link Name Attribute <span class="bcp14">MAY</span> be advertised when available.<a href="#section-5.2-8" class="pilcrow">¶</a></p>
+<p id="section-5.2-9">Other Link Attributes applicable to a BGP Router may also be included
+and this document does not describe the exhaustive list.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="PREFIX-PROCEDURES">
@@ -2188,79 +1912,15 @@ and this document does not describe the exhaustive list.<a href="#section-5.2-12
 <p id="section-5.3-1">Advertisement of the Prefix NLRI via BGP-LS may be required only in
 specific use-cases. Since the base BGP protocol along with its
 extensions already signals Prefix reachability via different NLRIs,
-there is no necessity to duplicate the information via BGP-LS session.
-However, for specific use-cases related to SR Traffic Engineering
-(SR-TE), it is required for each router to advertise it's Prefix
-SID(s) (refer <span>[<a href="#RFC8402" class="cite xref">RFC8402</a>]</span>) that can be used to direct traffic via
-specific BGP routers. Advertising such BGP Prefix SID for every BGP
-router provides this key attribute via BGP-LS and avoids the requirement
-for the consumer of the topology information (e.g. a controller or
-local TE process) to tap into other BGP NLRI information.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+there is no necessity to duplicate the information via BGP-LS session.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.3-2">Advertisement of the Prefix NLRI via BGP-LS <span class="bcp14">MUST</span> be done for its
-locally configured prefixes (e.g. its loopback interface address) and
-when BGP is advertising the BGP Prefix SID (<span>[<a href="#RFC8669" class="cite xref">RFC8669</a>]</span>) for it. The
+locally configured prefixes (e.g. its loopback interface address). The
 advertisement of the Prefix NLRI via BGP-LS for other prefixes learnt by
 the router <span class="bcp14">MAY</span> be done based on the specific use-case requirement and
 the BGP Route Type as described in <a href="#BGPRTTYPES" class="auto internal xref">Table 3</a> indicates the type of
 route being advertised.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.3-3">The Prefix attributes defined currently related to SR <span>[<a href="#RFC8402" class="cite xref">RFC8402</a>]</span> have
-been described in <a href="#PREFIX-ATTR" class="auto internal xref">Table 4</a> and <span class="bcp14">MAY</span> be advertised when SR is
-enabled. This includes:<a href="#section-5.3-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.3-4.1">
-            <p id="section-5.3-4.1.1">The Prefix SID TLV is included with the SID advertised as the index
-to be consistent with the Label-Index TLV of BGP Prefix SID
-attribute. The default algorithm is <span class="bcp14">MUST</span> be set to 0 by the
-originator except in the case where a local prefix is associated
-with a specific SR Algorithm. The flags are defined as the most
-significant 8 bits of the 16 bit field defined for Label-Index TLV
-in <span>[<a href="#RFC8669" class="cite xref">RFC8669</a>]</span>.<a href="#section-5.3-4.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-5.3-4.2">
-            <p id="section-5.3-4.2.1">For certain SR-TE uses, the Prefix Metric value <span class="bcp14">MAY</span> be included
-and it is set based on the SR-TE computation based on the
-link-state topology learnt via BGP-LS.<a href="#section-5.3-4.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-5.3-5">Other Prefix Attributes applicable may also be included and this
-document does not describe the exhaustive list.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="SRPOL-PROCEDURES">
-<section id="section-5.4">
-        <h3 id="name-advertisement-of-routers-sr">
-<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-advertisement-of-routers-sr" class="section-name selfRef">Advertisement of Router's SR Policy Candidate Path Attributes</a>
-        </h3>
-<p id="section-5.4-1">SR Policies that are setup using SR-TE mechanisms <span class="bcp14">MAY</span> be instantiated
-on a BGP router. One use-case that results in such SR Policy
-instantiation on a BGP router is described later in this document in
-<a href="#BGP-SRTE" class="auto internal xref">Section 6.2</a>. Advertising such SR Policy Candidate Paths instantiated
-for every BGP router as head-end via BGP-LS provides the consumer of
-the topology information (e.g. a controller or local TE process) a
-policy view of the BGP fabric as well.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
-<p id="section-5.4-2">The procedures for advertisement of the SR Policy Candidate Path NLRI
-via BGP-LS <span class="bcp14">MUST</span> be done only for its locally instantiated SR Policies
-and as specified in <span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span>. Implementation <span class="bcp14">MAY</span> provide
-configuration options to control the specific set of SR Policies that
-are to be advertised from the local node.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="SRV6SID-PROCEDURES">
-<section id="section-5.5">
-        <h3 id="name-advertisement-of-routers-srv">
-<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-advertisement-of-routers-srv" class="section-name selfRef">Advertisement of Router's SRv6 SID Attributes</a>
-        </h3>
-<p id="section-5.5-1">The SRv6 End SID instantiated on a BGP router can be used to signal
-SRv6 capabilities for the supported services. The advertisement of the
-SRv6 SID NLRI via BGP-LS may be required on SRv6 capable routers.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
-<p id="section-5.5-2">The SRv6 SID attributes have been described in <span>[<a href="#RFC9514" class="cite xref">RFC9514</a>]</span> and <span class="bcp14">MAY</span> be
-advertised when SRv6 is enabled. This includes:<a href="#section-5.5-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.5-3.1">
-            <p id="section-5.5-3.1.1">The SRv6 Endpoint Behavior defines specific behaviors for the SRv6
-SID and must be advertised.<a href="#section-5.5-3.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
+<p id="section-5.3-3">Other Prefix Attributes applicable may also be included and this
+document does not describe the exhaustive list.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2270,9 +1930,12 @@ SID and must be advertised.<a href="#section-5.5-3.1.1" class="pilcrow">¶</a></
       <h2 id="name-usage-of-bgp-topology">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-usage-of-bgp-topology" class="section-name selfRef">Usage of BGP Topology</a>
       </h2>
-<p id="section-6-1">This section describes some of the use-cases for the building of the
-BGP topology information as specified in this document and leveraging it
-for enabling new functionality.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This section describes the key use cases for the BGP topology
+information collected as specified in this document: topology visibility
+for network monitoring, IP Fast Reroute (IPFRR) and protection, and
+Segment Routing Traffic Engineering (SR-TE) in BGP-only networks. The
+specific algorithms and mechanisms for each use case are outside the
+scope of this document.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div id="TOPO-VIEW">
 <section id="section-6.1">
         <h3 id="name-topology-view-for-monitorin">
@@ -2290,105 +1953,82 @@ applications to consume the information with some incremental BGP
 protocol awareness.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="BGP-SRTE">
+<div id="BGP-IPFRR">
 <section id="section-6.2">
-        <h3 id="name-sr-te-in-bgp-networks">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-sr-te-in-bgp-networks" class="section-name selfRef">SR-TE in BGP Networks</a>
+        <h3 id="name-ip-fast-reroute-and-protect">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-ip-fast-reroute-and-protect" class="section-name selfRef">IP Fast Reroute and Protection in BGP-only Networks</a>
         </h3>
-<p id="section-6.2-1">The SR-TE use-case for BGP builds on top of functionality specified
-in <span>[<a href="#RFC8669" class="cite xref">RFC8669</a>]</span> and also described in <span>[<a href="#RFC8670" class="cite xref">RFC8670</a>]</span>.The BGP SR Prefix SID
-signaled, provides the basic connectivity between all BGP routers using
-their loopback addresses. This provides the basic best-effort paths in
-the network using the base BGP decision process that is unchanged. BGP
-and other overlay routes and services recurse on top of these loopback
-addresses of the egress nodes and the forwarding is done via the BGP SR
-Prefix SID labels in the underlay. While this version of the document
-focuses on the examples with MPLS dataplane instantiation for SR, the
-same is applicable for the IPv6 dataplane instantiation (SRv6) as well.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">SR-TE for BGP provides underlay paths through the network for the
-overlay routes and services with specific SLA requirements and use-cases
-like path disjointness, low latency paths, inclusion or exclusion and
-other TE considerations.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.2-3"><span>[<a href="#RFC9256" class="cite xref">RFC9256</a>]</span> specifies the SR Policy architecture. <span>[<a href="#RFC9830" class="cite xref">RFC9830</a>]</span> and
-<span>[<a href="#RFC9831" class="cite xref">RFC9831</a>]</span> describes the extensions to BGP for signaling of SR Policies
-from a controller to the SR-TE headend BGP router. BGP-LS has been
-extended to allow signaling of the SR Policies from SR-TE head-end to
-controllers via <span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span> which allows the controllers to learn the
-state of SR Policies instantiated on routers in the network. This
-document completes the missing piece that is related to getting the BGP
-topology information from all the routers to a controller as well the
-local SRTE process on each router for their path computation
-requirements.<a href="#section-6.2-3" class="pilcrow">¶</a></p>
-<p id="section-6.2-4">The signaling of SR Polices from controller to SR-TE headend and
-reporting of the state back to the controller can also be done using
-PCEP (<span>[<a href="#RFC8664" class="cite xref">RFC8664</a>]</span>, <span>[<a href="#RFC8281" class="cite xref">RFC8281</a>]</span>, <span>[<a href="#RFC8231" class="cite xref">RFC8231</a>]</span>). However, the BGP topology
-learning via BGP-LS which is specified in this document is also required
-for the deployments that uses PCEP in the BGP-only network.<a href="#section-6.2-4" class="pilcrow">¶</a></p>
-<p id="section-6.2-5">The topology collected via BGP-LS in a BGP-only fabric in a Segment
-Routing deployment comprise of:<a href="#section-6.2-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2-6.1">
-            <p id="section-6.2-6.1.1">The properties of every BGP router node and the Prefix SIDs to
-reach that node.<a href="#section-6.2-6.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-6.2">
-            <p id="section-6.2-6.2.1">The properties of all the links between the BGP routers and the
-Peer-Adjacency-SIDs (and other EPE SIDs) corresponding to them
-that allow directing traffic over specific links and/or to specific
-neighbors.<a href="#section-6.2-6.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-6.3">
-            <p id="section-6.2-6.3.1">The properties and state of the SR Policies instantiatied on each
-of the BGP routers along with their end points, their properties
-and most importantly the Binding SID to steer traffic into the SR
-Policies.<a href="#section-6.2-6.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-7">This topology information allows a computation node to build SR
-Policies for services over the BGP fabric for a given traffic
-engineering objective at any given node.<a href="#section-6.2-7" class="pilcrow">¶</a></p>
-<p id="section-6.2-8">The topology of the BGP fabric is advertised to a centralized
-controller or application for use-cases that need a centralized
-computation of SR Policy which can then be signaled to the SR-TE
-head-end node via PCEP or BGP-SRTE. The topology may also be
-distributed to any node in the BGP fabric to be used by its local
-SR-TE process to perform path computation for its own SR Policies for
-use-cases that are addressed by local computation.<a href="#section-6.2-8" class="pilcrow">¶</a></p>
-<p id="section-6.2-9">A high level summary of the key topology information advertised via
-BGP-LS by BGP routers can be used for TE computations as follows<a href="#section-6.2-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2-10.1">
-            <p id="section-6.2-10.1.1">The BGP SR Prefix SIDs and the BGP EPE Peering Adjacency SIDs
-provide the equivalent of the IGP Prefix and Adjacency SIDs and
-can be used to direct traffic to a specific BGP router and over a
-specific BGP peer session or link respectively. Traffic for the
-BGP SR Prefix SIDs follow the path computed by the BGP decision
-process.<a href="#section-6.2-10.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-10.2">
-            <p id="section-6.2-10.2.1">The TE metric can be used to tailor the choice of specific paths
-in the network for SR-TE.<a href="#section-6.2-10.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-10.3">
-            <p id="section-6.2-10.3.1">The TE administrative group (also known as affinities) and SRLG
-attributes can be configured over links to enable computation of
-paths with inclusion and exclusion of specific links or paths that
-are mutually disjoint.<a href="#section-6.2-10.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-10.4">
-            <p id="section-6.2-10.4.1">The enabling of link delay and loss measurements and their
-advertisements can help monitoring the link quality and carve out
-paths based on latency and other SLA requirements.<a href="#section-6.2-10.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.2-10.5">
-            <p id="section-6.2-10.5.1">The signaling of the Node and Link MSD allows controllers to
-instantiate SR Policies based on the capability of the routers.<a href="#section-6.2-10.5.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-11">This section attempts to highlight and describe at a high level some
-of the possible SR-TE solutions and use-cases in a BGP-only network.
-The actual SR-TE computation and algorithms are outside the scope of
-this document.<a href="#section-6.2-11" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">AI and Machine Learning (AI/ML) data center fabrics commonly employ
+BGP-only multi-tier Clos topologies in which training workloads are
+highly synchronized, bandwidth-saturating, and extremely sensitive to
+packet loss. These characteristics impose stringent convergence time
+requirements. The requirements and their implications for IP Fast
+Reroute (IPFRR) in such fabrics are described in
+<span>[<a href="#I-D.clad-rtgwg-ipfrr-aiml" class="cite xref">I-D.clad-rtgwg-ipfrr-aiml</a>]</span>.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">Traditional IPFRR <span>[<a href="#RFC5714" class="cite xref">RFC5714</a>]</span> deployments rely upon a link-state IGP to
+supply the complete topology database from which repair paths are
+computed. BGP-only networks lack an equivalent topology database. The
+BGP-LS topology collection specified in this document addresses this
+limitation by providing complete topology visibility, enabling IPFRR
+computations using LFA and TI-LFA techniques. The problem statement and
+solution framework for IPFRR in BGP-only networks using BGP-LS as the
+topology source are defined in
+<span>[<a href="#I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network" class="cite xref">I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network</a>]</span>.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-3">For scenarios where ECMP and TI-LFA protection are insufficient --
+particularly on downward paths in Clos topologies where hairpin reroutes
+would consume bandwidth on already-loaded uplinks -- Efficient Remote
+Protection (ERP) <span>[<a href="#I-D.clad-rtgwg-efficient-remote-protection" class="cite xref">I-D.clad-rtgwg-efficient-remote-protection</a>]</span> provides
+a pre-computed, hairpin-free backup path mechanism. The Node and Link
+NLRIs collected via BGP-LS provide the topology input required to
+compute such protection paths at any node within the BGP-only fabric.<a href="#section-6.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="BGP-SRTE">
+<section id="section-6.3">
+        <h3 id="name-sr-te-in-bgp-networks">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-sr-te-in-bgp-networks" class="section-name selfRef">SR-TE in BGP Networks</a>
+        </h3>
+<p id="section-6.3-1">SR Traffic Engineering (SR-TE) for BGP provides underlay paths through
+the network for overlay routes and services with specific requirements
+such as multi-plane redundancy in Clos topologies where independent
+parallel fabric planes provide path diversity and fault isolation.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-2"><span>[<a href="#RFC9256" class="cite xref">RFC9256</a>]</span> specifies the SR Policy architecture. <span>[<a href="#RFC9830" class="cite xref">RFC9830</a>]</span> and
+<span>[<a href="#RFC9831" class="cite xref">RFC9831</a>]</span> describe the extensions to BGP for signaling of SR Policies
+from a controller to the SR-TE headend BGP router. <span>[<a href="#RFC9857" class="cite xref">RFC9857</a>]</span> enables
+the advertisement of SR Policy state from the headend to controllers via
+BGP-LS. This document completes the picture by providing the BGP
+topology information from all the routers to a controller as well as
+the local SR-TE process on each router for path computation.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+<p id="section-6.3-3">The topology collected via BGP-LS in a BGP-only fabric provides the
+node, link, and prefix properties along with SR SIDs that enable a
+computation entity to build SR Policies for traffic engineering
+objectives. The topology may be advertised to a centralized controller
+for use-cases requiring centralized computation, or distributed to any
+node in the BGP fabric for use by its local SR-TE process.<a href="#section-6.3-3" class="pilcrow">¶</a></p>
+<p id="section-6.3-4">Two deployment scenarios that leverage SRv6 TE in BGP-only data
+center fabrics are described below.<a href="#section-6.3-4" class="pilcrow">¶</a></p>
+<p id="section-6.3-5"><span>[<a href="#I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan" class="cite xref">I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan</a>]</span> describes an SRv6
+end-to-end architecture that unifies the data center frontend and WAN
+under a single SRv6 domain, eliminating the need for protocol
+translation at DCI gateways. In this deployment, SR Policies are used to
+steer traffic end-to-end across the DC and WAN and to enable stateless
+service insertion (e.g., directing traffic through firewall services via
+SRv6 SIDs). The BGP-LS topology collection specified in this document
+provides the node and link information within the BGP-only DC fabric
+that is required by a controller or local SR-TE process to compute such
+SR Policies.<a href="#section-6.3-5" class="pilcrow">¶</a></p>
+<p id="section-6.3-6"><span>[<a href="#I-D.filsfils-srv6ops-srv6-ai-backend" class="cite xref">I-D.filsfils-srv6ops-srv6-ai-backend</a>]</span> describes the use of SRv6 to
+enable deterministic path placement for GPU-to-GPU traffic in AI/ML
+backend fabrics. In this deployment, an AI scheduler computes optimal
+paths through the Clos fabric to achieve homogeneous link utilization
+and avoid congestion for large, predictable training flows. The paths
+are encoded as SRv6 network programs at the source NIC without requiring
+per-flow state on intermediate fabric nodes. The BGP-LS topology
+collection specified in this document provides the fabric-wide node and
+link information that is required by the AI scheduler or controller to
+compute these deterministic paths.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
+<p id="section-6.3-7">The actual SR-TE path computation and algorithms are outside the
+scope of this document.<a href="#section-6.3-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2399,7 +2039,7 @@ this document.<a href="#section-6.2-11" class="pilcrow">¶</a></p>
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-7-1">This document requests IANA to allocate code points from the "BGP-LS
-NLRI and Attribute TLVs" registry of the "Border Gateway Protocol -
+NLRI and Attribute TLVs" sub-registry of the "Border Gateway Protocol -
 Link-State (BGP-LS) Parameters" registry group.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">This document requests the allocation following TLV codepoints:<a href="#section-7-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-5">
@@ -2477,18 +2117,6 @@ receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8571">[RFC8571]</dt>
-        <dd>
-<span class="refAuthor">Ginsberg, L., Ed.</span>, <span class="refAuthor">Previdi, S.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Tantsura, J.</span>, and <span class="refAuthor">C. Filsfils</span>, <span class="refTitle">"BGP - Link State (BGP-LS) Advertisement of IGP Traffic Engineering Performance Metric Extensions"</span>, <span class="seriesInfo">RFC 8571</span>, <span class="seriesInfo">DOI 10.17487/RFC8571</span>, <time datetime="2019-03" class="refDate">March 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8571">https://www.rfc-editor.org/rfc/rfc8571</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8669">[RFC8669]</dt>
-        <dd>
-<span class="refAuthor">Previdi, S.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Lindem, A., Ed.</span>, <span class="refAuthor">Sreekantiah, A.</span>, and <span class="refAuthor">H. Gredler</span>, <span class="refTitle">"Segment Routing Prefix Segment Identifier Extensions for BGP"</span>, <span class="seriesInfo">RFC 8669</span>, <span class="seriesInfo">DOI 10.17487/RFC8669</span>, <time datetime="2019-12" class="refDate">December 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8669">https://www.rfc-editor.org/rfc/rfc8669</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8814">[RFC8814]</dt>
-        <dd>
-<span class="refAuthor">Tantsura, J.</span>, <span class="refAuthor">Chunduri, U.</span>, <span class="refAuthor">Talaulikar, K.</span>, <span class="refAuthor">Mirsky, G.</span>, and <span class="refAuthor">N. Triantafillis</span>, <span class="refTitle">"Signaling Maximum SID Depth (MSD) Using the Border Gateway Protocol - Link State"</span>, <span class="seriesInfo">RFC 8814</span>, <span class="seriesInfo">DOI 10.17487/RFC8814</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8814">https://www.rfc-editor.org/rfc/rfc8814</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC9085">[RFC9085]</dt>
         <dd>
 <span class="refAuthor">Previdi, S.</span>, <span class="refAuthor">Talaulikar, K., Ed.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Gredler, H.</span>, and <span class="refAuthor">M. Chen</span>, <span class="refTitle">"Border Gateway Protocol - Link State (BGP-LS) Extensions for Segment Routing"</span>, <span class="seriesInfo">RFC 9085</span>, <span class="seriesInfo">DOI 10.17487/RFC9085</span>, <time datetime="2021-08" class="refDate">August 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9085">https://www.rfc-editor.org/rfc/rfc9085</a>&gt;</span>. </dd>
@@ -2496,18 +2124,6 @@ receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <dt id="RFC9086">[RFC9086]</dt>
         <dd>
 <span class="refAuthor">Previdi, S.</span>, <span class="refAuthor">Talaulikar, K., Ed.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Patel, K.</span>, <span class="refAuthor">Ray, S.</span>, and <span class="refAuthor">J. Dong</span>, <span class="refTitle">"Border Gateway Protocol - Link State (BGP-LS) Extensions for Segment Routing BGP Egress Peer Engineering"</span>, <span class="seriesInfo">RFC 9086</span>, <span class="seriesInfo">DOI 10.17487/RFC9086</span>, <time datetime="2021-08" class="refDate">August 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9086">https://www.rfc-editor.org/rfc/rfc9086</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC9104">[RFC9104]</dt>
-        <dd>
-<span class="refAuthor">Tantsura, J.</span>, <span class="refAuthor">Wang, Z.</span>, <span class="refAuthor">Wu, Q.</span>, and <span class="refAuthor">K. Talaulikar</span>, <span class="refTitle">"Distribution of Traffic Engineering Extended Administrative Groups Using the Border Gateway Protocol - Link State (BGP-LS)"</span>, <span class="seriesInfo">RFC 9104</span>, <span class="seriesInfo">DOI 10.17487/RFC9104</span>, <time datetime="2021-08" class="refDate">August 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9104">https://www.rfc-editor.org/rfc/rfc9104</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC9247">[RFC9247]</dt>
-        <dd>
-<span class="refAuthor">Li, Z.</span>, <span class="refAuthor">Zhuang, S.</span>, <span class="refAuthor">Talaulikar, K., Ed.</span>, <span class="refAuthor">Aldrin, S.</span>, <span class="refAuthor">Tantsura, J.</span>, and <span class="refAuthor">G. Mirsky</span>, <span class="refTitle">"BGP - Link State (BGP-LS) Extensions for Seamless Bidirectional Forwarding Detection (S-BFD)"</span>, <span class="seriesInfo">RFC 9247</span>, <span class="seriesInfo">DOI 10.17487/RFC9247</span>, <time datetime="2022-06" class="refDate">June 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9247">https://www.rfc-editor.org/rfc/rfc9247</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC9350">[RFC9350]</dt>
-        <dd>
-<span class="refAuthor">Psenak, P., Ed.</span>, <span class="refAuthor">Hegde, S.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Talaulikar, K.</span>, and <span class="refAuthor">A. Gulko</span>, <span class="refTitle">"IGP Flexible Algorithm"</span>, <span class="seriesInfo">RFC 9350</span>, <span class="seriesInfo">DOI 10.17487/RFC9350</span>, <time datetime="2023-02" class="refDate">February 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9350">https://www.rfc-editor.org/rfc/rfc9350</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9514">[RFC9514]</dt>
         <dd>
@@ -2530,13 +2146,33 @@ receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network">[I-D.abdelsalam-rtgwg-ipfrr-bgp-only-network]</dt>
+        <dd>
+<span class="refAuthor">Abdelsalam, A.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Ruan, E.</span>, and <span class="refAuthor">D. Cai</span>, <span class="refTitle">"IP Fast Reroute for BGP-Only Networks"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-abdelsalam-rtgwg-ipfrr-bgp-only-network-00</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-abdelsalam-rtgwg-ipfrr-bgp-only-network-00">https://datatracker.ietf.org/doc/html/draft-abdelsalam-rtgwg-ipfrr-bgp-only-network-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.clad-rtgwg-efficient-remote-protection">[I-D.clad-rtgwg-efficient-remote-protection]</dt>
+        <dd>
+<span class="refAuthor">Clad, F.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Su, Y.</span>, and <span class="refAuthor">D. Cai</span>, <span class="refTitle">"Efficient Remote Protection"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-clad-rtgwg-efficient-remote-protection-00</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-clad-rtgwg-efficient-remote-protection-00">https://datatracker.ietf.org/doc/html/draft-clad-rtgwg-efficient-remote-protection-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.clad-rtgwg-ipfrr-aiml">[I-D.clad-rtgwg-ipfrr-aiml]</dt>
+        <dd>
+<span class="refAuthor">Clad, F.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Jiang, R.</span>, and <span class="refAuthor">D. Cai</span>, <span class="refTitle">"IP Fast Reroute for AI/ML Fabrics"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-clad-rtgwg-ipfrr-aiml-00</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-clad-rtgwg-ipfrr-aiml-00">https://datatracker.ietf.org/doc/html/draft-clad-rtgwg-ipfrr-aiml-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.filsfils-srv6ops-srv6-ai-backend">[I-D.filsfils-srv6ops-srv6-ai-backend]</dt>
+        <dd>
+<span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Camarillo, P.</span>, <span class="refAuthor">Lu, G.</span>, <span class="refAuthor">Brar, J.</span>, <span class="refAuthor">Becker, D.</span>, <span class="refAuthor">Jouhari, A.</span>, <span class="refAuthor">Pillai, K.</span>, <span class="refAuthor">Abdelsalam, A.</span>, <span class="refAuthor">Tantsura, J.</span>, and <span class="refAuthor">K. Patel</span>, <span class="refTitle">"SRv6 for Deterministic Path Placement in AI Backends"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-filsfils-srv6ops-srv6-ai-backend-04</span>, <time datetime="2026-06-03" class="refDate">3 June 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-filsfils-srv6ops-srv6-ai-backend-04">https://datatracker.ietf.org/doc/html/draft-filsfils-srv6ops-srv6-ai-backend-04</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan">[I-D.filsfils-srv6ops-srv6-e2e-dc-frontend-wan]</dt>
+        <dd>
+<span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Camarillo, P.</span>, <span class="refAuthor">Michielsen, K.</span>, <span class="refAuthor">Gorovoy, A.</span>, and <span class="refAuthor">N. Leymann</span>, <span class="refTitle">"SRv6 End-to-End DC Frontend and WAN"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-filsfils-srv6ops-srv6-e2e-dc-frontend-wan-02</span>, <time datetime="2026-06-03" class="refDate">3 June 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-filsfils-srv6ops-srv6-e2e-dc-frontend-wan-02">https://datatracker.ietf.org/doc/html/draft-filsfils-srv6ops-srv6-e2e-dc-frontend-wan-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC4272">[RFC4272]</dt>
         <dd>
 <span class="refAuthor">Murphy, S.</span>, <span class="refTitle">"BGP Security Vulnerabilities Analysis"</span>, <span class="seriesInfo">RFC 4272</span>, <span class="seriesInfo">DOI 10.17487/RFC4272</span>, <time datetime="2006-01" class="refDate">January 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4272">https://www.rfc-editor.org/rfc/rfc4272</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC6374">[RFC6374]</dt>
+<dt id="RFC5714">[RFC5714]</dt>
         <dd>
-<span class="refAuthor">Frost, D.</span> and <span class="refAuthor">S. Bryant</span>, <span class="refTitle">"Packet Loss and Delay Measurement for MPLS Networks"</span>, <span class="seriesInfo">RFC 6374</span>, <span class="seriesInfo">DOI 10.17487/RFC6374</span>, <time datetime="2011-09" class="refDate">September 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6374">https://www.rfc-editor.org/rfc/rfc6374</a>&gt;</span>. </dd>
+<span class="refAuthor">Shand, M.</span> and <span class="refAuthor">S. Bryant</span>, <span class="refTitle">"IP Fast Reroute Framework"</span>, <span class="seriesInfo">RFC 5714</span>, <span class="seriesInfo">DOI 10.17487/RFC5714</span>, <time datetime="2010-01" class="refDate">January 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5714">https://www.rfc-editor.org/rfc/rfc5714</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6952">[RFC6952]</dt>
         <dd>
@@ -2546,25 +2182,9 @@ receive such information.<a href="#section-8-4" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Lapukhov, P.</span>, <span class="refAuthor">Premji, A.</span>, and <span class="refAuthor">J. Mitchell, Ed.</span>, <span class="refTitle">"Use of BGP for Routing in Large-Scale Data Centers"</span>, <span class="seriesInfo">RFC 7938</span>, <span class="seriesInfo">DOI 10.17487/RFC7938</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7938">https://www.rfc-editor.org/rfc/rfc7938</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8231">[RFC8231]</dt>
-        <dd>
-<span class="refAuthor">Crabbe, E.</span>, <span class="refAuthor">Minei, I.</span>, <span class="refAuthor">Medved, J.</span>, and <span class="refAuthor">R. Varga</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Extensions for Stateful PCE"</span>, <span class="seriesInfo">RFC 8231</span>, <span class="seriesInfo">DOI 10.17487/RFC8231</span>, <time datetime="2017-09" class="refDate">September 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8231">https://www.rfc-editor.org/rfc/rfc8231</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8281">[RFC8281]</dt>
-        <dd>
-<span class="refAuthor">Crabbe, E.</span>, <span class="refAuthor">Minei, I.</span>, <span class="refAuthor">Sivabalan, S.</span>, and <span class="refAuthor">R. Varga</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Extensions for PCE-Initiated LSP Setup in a Stateful PCE Model"</span>, <span class="seriesInfo">RFC 8281</span>, <span class="seriesInfo">DOI 10.17487/RFC8281</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8281">https://www.rfc-editor.org/rfc/rfc8281</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC8402">[RFC8402]</dt>
         <dd>
 <span class="refAuthor">Filsfils, C., Ed.</span>, <span class="refAuthor">Previdi, S., Ed.</span>, <span class="refAuthor">Ginsberg, L.</span>, <span class="refAuthor">Decraene, B.</span>, <span class="refAuthor">Litkowski, S.</span>, and <span class="refAuthor">R. Shakir</span>, <span class="refTitle">"Segment Routing Architecture"</span>, <span class="seriesInfo">RFC 8402</span>, <span class="seriesInfo">DOI 10.17487/RFC8402</span>, <time datetime="2018-07" class="refDate">July 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8402">https://www.rfc-editor.org/rfc/rfc8402</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8664">[RFC8664]</dt>
-        <dd>
-<span class="refAuthor">Sivabalan, S.</span>, <span class="refAuthor">Filsfils, C.</span>, <span class="refAuthor">Tantsura, J.</span>, <span class="refAuthor">Henderickx, W.</span>, and <span class="refAuthor">J. Hardwick</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Extensions for Segment Routing"</span>, <span class="seriesInfo">RFC 8664</span>, <span class="seriesInfo">DOI 10.17487/RFC8664</span>, <time datetime="2019-12" class="refDate">December 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8664">https://www.rfc-editor.org/rfc/rfc8664</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8670">[RFC8670]</dt>
-        <dd>
-<span class="refAuthor">Filsfils, C., Ed.</span>, <span class="refAuthor">Previdi, S.</span>, <span class="refAuthor">Dawra, G.</span>, <span class="refAuthor">Aries, E.</span>, and <span class="refAuthor">P. Lapukhov</span>, <span class="refTitle">"BGP Prefix Segment in Large-Scale Data Centers"</span>, <span class="seriesInfo">RFC 8670</span>, <span class="seriesInfo">DOI 10.17487/RFC8670</span>, <time datetime="2019-12" class="refDate">December 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8670">https://www.rfc-editor.org/rfc/rfc8670</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9087">[RFC9087]</dt>
         <dd>

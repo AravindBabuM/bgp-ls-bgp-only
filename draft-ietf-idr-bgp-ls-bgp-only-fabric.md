@@ -689,10 +689,10 @@ scope of this document.
 
 # IANA Considerations {#IANA}
 
-IANA has allocated code points for the TLVs and sub-TLVs defined in
-this document from the "BGP-LS NLRI and Attribute TLVs" sub-registry of
-the "Border Gateway Protocol - Link-State (BGP-LS) Parameters" registry
-group as follows:
+IANA has allocated a code point for the TLV defined in this document
+from the "BGP-LS NLRI and Attribute TLVs" sub-registry of the "Border
+Gateway Protocol - Link-State (BGP-LS) Parameters" registry group as
+follows:
 
 | TLV Code Point | Description | Reference |
 |:-:|:--|:--|

@@ -5,14 +5,14 @@
 Inter-Domain Routing                                       K. Talaulikar
 Internet-Draft                                   A. B. MahendraBabu, Ed.
 Intended status: Standards Track                             C. Filsfils
-Expires: 20 January 2027                                        K. Swamy
+Expires: 20 February 2027                                       K. Swamy
                                                            Cisco Systems
                                                                 S. Zandi
                                                                 G. Dawra
                                                                 LinkedIn
                                                               M. Durrani
                                                                  Equinix
-                                                            19 July 2026
+                                                          19 August 2026
 
 
             BGP Link-State Extensions for BGP-only Networks
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 January 2027.
+   This Internet-Draft will expire on 20 February 2027.
 
 Copyright Notice
 
@@ -422,7 +422,7 @@ Table of Contents
 
    Where:
 
-   Type:  2-octet field with value TBD.
+   Type:  2-octet field with value 535.
 
    Length:  2-octet field with value set to 1.
 
@@ -705,16 +705,15 @@ Table of Contents
 
 7.  IANA Considerations
 
-   This document requests IANA to allocate code points from the "BGP-LS
-   NLRI and Attribute TLVs" sub-registry of the "Border Gateway Protocol
-   - Link-State (BGP-LS) Parameters" registry group.
-
-   This document requests the allocation following TLV codepoints:
+   IANA has allocated a code point for the TLV defined in this document
+   from the "BGP-LS NLRI and Attribute TLVs" sub-registry of the "Border
+   Gateway Protocol - Link-State (BGP-LS) Parameters" registry group as
+   follows:
 
             +================+================+===============+
             | TLV Code Point | Description    | Reference     |
             +================+================+===============+
-            |      TBD       | BGP Route Type | this document |
+            |      535       | BGP Route Type | this document |
             +----------------+----------------+---------------+
 
                                   Table 5

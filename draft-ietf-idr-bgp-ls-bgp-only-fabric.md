@@ -421,7 +421,7 @@ The format of this TLV is as follows:
 Where:
 
 Type:
-: 2-octet field with value TBD.
+: 2-octet field with value 535.
 
 Length:
 : 2-octet field with value set to 1.
@@ -689,15 +689,14 @@ scope of this document.
 
 # IANA Considerations {#IANA}
 
-This document requests IANA to allocate code points from the "BGP-LS
-NLRI and Attribute TLVs" sub-registry of the "Border Gateway Protocol -
-Link-State (BGP-LS) Parameters" registry group.
-
-This document requests the allocation following TLV codepoints:
+IANA has allocated code points for the TLVs and sub-TLVs defined in
+this document from the "BGP-LS NLRI and Attribute TLVs" sub-registry of
+the "Border Gateway Protocol - Link-State (BGP-LS) Parameters" registry
+group as follows:
 
 | TLV Code Point | Description | Reference |
 |:-:|:--|:--|
-| TBD | BGP Route Type | this document |
+| 535 | BGP Route Type | this document |
 
 
 # Security Considerations {#Security}

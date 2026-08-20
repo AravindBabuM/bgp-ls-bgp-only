@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-18T01:13:04.106756+00:00",
+  "timestamp": "2026-08-20T01:13:53.736892+00:00",
   "repo": "AravindBabuM/bgp-ls-bgp-only",
   "labels": [
     {
@@ -107,6 +107,34 @@
       "mergedBy": "AravindBabuM",
       "mergeCommit": {
         "oid": "c464136eb9048e880cdc0f54a3a8f4e2ace9801d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOTMlSnc8AAAABARlCQQ",
+      "title": "Replaced TBD with allocated code point 535 for BGP Route Type TLV",
+      "url": "https://github.com/AravindBabuM/bgp-ls-bgp-only/pull/3",
+      "state": "MERGED",
+      "author": "AravindBabuM",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Replaced TBD with allocated code point 535 for BGP Route Type TLV",
+      "createdAt": "2026-08-19T11:42:54Z",
+      "updatedAt": "2026-08-19T12:16:15Z",
+      "baseRepository": "AravindBabuM/bgp-ls-bgp-only",
+      "baseRefName": "main",
+      "baseRefOid": "c464136eb9048e880cdc0f54a3a8f4e2ace9801d",
+      "headRepository": "AravindBabuM/bgp-ls-bgp-only",
+      "headRefName": "v07",
+      "headRefOid": "95d9b56823ff5f2c5b48ecfd48af0a73685990ee",
+      "closedAt": "2026-08-19T12:16:15Z",
+      "mergedAt": "2026-08-19T12:16:15Z",
+      "mergedBy": "AravindBabuM",
+      "mergeCommit": {
+        "oid": "fdaaab2fb6904126a32e0e5e82babee3e865c8ea"
       },
       "comments": [],
       "reviews": []
